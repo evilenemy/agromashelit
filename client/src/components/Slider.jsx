@@ -41,7 +41,7 @@ const Slider = ({
       pagination={{
         clickable: true,
       }}
-      navigation={(windowWidth > 960 && slideMode === "image") || Navigation_}
+      navigation={(windowWidth > 960 && slideMode === "image") && Navigation_}
       loop={true}
       modules={[Autoplay, Pagination, Navigation]}
       className={`mySwiper w-full ${

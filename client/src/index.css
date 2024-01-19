@@ -7,15 +7,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-.nav-tractor-prog, .nav-agro-prog,  .nav-about-prog{
-  width: 100%;
-  height: 3px;
-  background: #fff;
-  transition: 0.4 ease-out;
-}
-.nav-tractor:hover .nav-tractor-prog, .nav-agro:hover .nav-agro-prog,  .nav-about:hover .nav-about-prog{
-  width: 100%;
-}
 
 /* input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
