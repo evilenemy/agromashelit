@@ -20,17 +20,9 @@ const Slider = ({
 
   return (
     <Swiper
-      spaceBetween={30}
+      spaceBetween={slideMode === "image" ? 30 : 15}
       centeredSlides={slideMode === "image"}
-      slidesPerView={
-        windowWidth < 960 && slideMode === "image"
-          ? 1.1
-          : windowWidth > 960 && slideMode === "image"
-          ? 1
-          : windowWidth > 960
-          ? Math.floor(windowWidth / 250)
-          : Math.floor(windowWidth / 200)
-      }
+      slidesPerView={"auto"}
       autoplay={
         isPlay && {
           delay: autoPlay,
@@ -79,7 +71,7 @@ const Slider = ({
         ))}
       {slideMode === "product" &&
         slides.map((slide, index) => (
-          <SwiperSlide key={index}>{slide}</SwiperSlide>
+          <SwiperSlide key={index} className="w-[290px]">{slide}</SwiperSlide>
         ))}
     </Swiper>
   );

@@ -2,61 +2,97 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="w-full mt-0 md:mt-4 pt-2 text-zinc-500 mb-12">
-      <div className="w-full md:w-[65%] flex-col flex md:flex-row md:justify-between mx-auto justify-center">
-        <div className="w-full sm:w-[70%] md:w-6/12 py-2 px-4 mx-auto md:m-0">
-          <h1 className="text-center md:text-left text-xl text-black font-medium w-[90%]">
-            Категории
-          </h1>
-          <ul className="w-[95%] mx-auto grid grid-cols-2 mt-5 mb-4">
-            <li className="w-max m-1 hover:underline cursor-pointer">
-              Электроника
-            </li>
-            <li className="w-max m-1 hover:underline cursor-pointer">
-              Бытовая техника
-            </li>
-            <li className="w-max m-1 hover:underline cursor-pointer">Одежда</li>
-            <li className="w-max m-1 hover:underline cursor-pointer">Обувь</li>
-            <li className="w-max m-1 hover:underline cursor-pointer">
-              Аксессуары
-            </li>
-            <li className="w-max m-1 hover:underline cursor-pointer">
-              Красота
-            </li>
-            <li className="w-max m-1 hover:underline cursor-pointer">
-              Здоровье
-            </li>
-            <li className="w-max m-1 hover:underline cursor-pointer">
-              Товары для дома
-            </li>
-          </ul>
+    <div>
+      <footer>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3 footer-item">
+              <h4>Agrotexnika-olami.Uz</h4>
+              <p>Eng sifatli maxsulotlar faqat bizda!</p>
+              <ul className="social-icons">
+                <li>
+                  <a
+                    rel="nofollow"
+                    href="https://fb.com/templatemo"
+                    target="_blank"
+                  >
+                    <i className="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i className="fa fa-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i className="fa fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-md-3 footer-item">
+              <h4
+                className="meda"
+                style={{
+                  position: "relative",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                Bizni ijtimoiy tarmoqlarda kuzating!
+              </h4>
+              <ul className="menu-list">
+                <li>
+                  <a href="#">Facebook Kanalimiz</a>
+                </li>
+                <li>
+                  <a href="#">Instagram Kanalimiz</a>
+                </li>
+                <li>
+                  <a href="#">Youtube kanalimiz</a>
+                </li>
+                <li>
+                  <a href="https://t.me/agrotexnika_olami">
+                    Telegram Kanalimiz
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="md:w-4/12 mx-auto md:m-0">
-          <h1 className="text-center md:text-left text-xl font-medium text-black mt-2">
-            Контакт
-          </h1>
-          <div className="flex md:grid-cols-1 grid-cols-2 md:grid-rows-2 grid-rows-1 sm:grid sm:flex-wrap py-5">
-            <p className="w-max">admin@nishtyaki.uz</p>{" "}
-            <br className="laptop-visible" />
-            <p className="w-max ml-2 sm:ml-0">+998 XX XXX XX XX</p>
+      </footer>
+
+      <div className="sub-footer">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <p>
+                &copy; Copyright {new Date().getFullYear()} Agromash elit MCHJ
+                Co., Ltd. - Design:{" "}
+                <a
+                  rel="nofollow noopener"
+                  href="https://telegram.me/black_evilenemy"
+                  target="_blank"
+                >
+                  Evil Enemy
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      {/* <div className="flex w-[70%] mt-6 justify-around items-center mx-auto">
-        <h1>Contact us</h1>
-        <h1>Our Services</h1>
-        <h1>Privacy Policy</h1>
-        <h1>Terms & Conditions</h1>
-        <h1>Career</h1>
-      </div> */}
-      <div className="hidden lg:block">
-        <hr className="w-[850px] my-1 md:my-3 mx-auto border-black/40" />
-        <h1 className="text-center mt-2">
-          Copyright © {new Date().getFullYear()} Nishtyaki - All rights reserved
-          || Designed By: Evil Enemy
-        </h1>
-      </div>
-    </footer>
+    </div>
+    // <footer className="w-full h-[300px] mt-10">
+    //   <div className="flex w-full h-[95%]">
+    //     <div className="w-[50px] h-full grid grid-rows-3">
+    //       <img src="telegram.png" alt="Telegram" className="w-[40px]" />
+    //       <img src="/intagram.png" alt="Instagram" className="w-[40px]" />
+    //       <img src="/facebook.jpg" alt="Facebook" />
+    //     </div>
+    //     <div className="w-[calc(100%-50px)] h-full"></div>
+    //   </div>
+    // </footer>
   );
 };
 

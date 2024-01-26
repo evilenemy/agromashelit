@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+.font-poppins{
+  font-family: 'Poppins';
+}
+
 /* input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

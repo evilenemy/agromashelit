@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 // import ProductDetail from "./pages/ProductDetail";
 // import Saveds from "./pages/Saveds";
 // import Cart from "./pages/Cart";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 // import Login from "./pages/Login";
 // import Signup from "./pages/Signup";
 // import { useAuthContext } from "./hooks/useAuthContext";
@@ -34,7 +34,7 @@ function App() {
         <Route path="/login" element={<Login api={api} />} />
         <Route path="/signup" element={<Signup api={api} />} /> */}
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
