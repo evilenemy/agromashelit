@@ -4,13 +4,6 @@ import Product from "../components/Product";
 const Home = () => {
   return (
     <>
-      <div id="preloader">
-        <div className="jumper">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
       <div className="main-banner header-text" id="top">
         <div className="Modern-Slider text-white">
           <div className="item item-1">

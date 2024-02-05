@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 
 const Slider = ({
   slides,
-  slideMode,
+  slideMode="product",
   isPlay = true,
   autoPlay = 2500,
   Navigation_ = true,
@@ -57,15 +57,15 @@ const Slider = ({
               width: windowWidth + "px",
             }}
             className={`${
-              windowWidth > 960 && slideMode === "image"
+              windowWidth > 960
                 ? "w-full"
                 : "max-w-[1400px]"
-            } h-[100%] cursor-pointer`}
+            } cursor-pointer max-h-[450px]`}
           >
             <img
               src={image.path}
               alt="Pic"
-              className="w-full h-full object-contain rounded-xl"
+              className="w-full max-h-[450px] object-contain rounded-xl"
             />
           </SwiperSlide>
         ))}
