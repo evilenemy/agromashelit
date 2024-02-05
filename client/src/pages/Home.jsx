@@ -74,7 +74,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <a
-                href="https://telegram.me/agrotexnika_olami"
+                href="https://telegram.me/"
                 className="border-button"
               >
                 Aloqa uchun
@@ -208,7 +208,7 @@ const Home = () => {
                   </em>
                 </h2>
                 <p>
-                  Agrotexnika Olami MCHJ Oʻzbekiston hududida Qishloq xojalik
+                  Agromash Elit MCHJ Oʻzbekiston hududida Qishloq xojalik
                   texnikalarini halol savdosi bilan shugʻulanish maqsadida
                   yaratilgan firma boʻlib bizda dunyoning yetakchi davlatlarinig
                   eng ilgoʻr texnikalari bor 100 dan ortiq traktorlar turli
@@ -220,7 +220,7 @@ const Home = () => {
                   yengilashtirish uchun yaratilgan Biz bilan enag katta lizing
                   firmalari hamkorlik da ishlashadi.
                   <br />
-                  Manzilimiz Toshkent shaxar Chilonzor 18 A{" "}
+                  Manzilimiz Toshkent shaxar Chilonzor 34 B{" "}
                 </p>
                 <a
                   href=""
@@ -278,7 +278,7 @@ const Home = () => {
             <em style={{ color: "#4ADE80" }}>T</em>raktorlar
           </h2>
         </div>
-        <div className="flex justify-around">
+        <div className="flex justify-around flex-wrap">
           <Product />
           <Product />
           <Product />
@@ -291,7 +291,7 @@ const Home = () => {
             <em style={{ color: "#4ADE80" }}>A</em>grotexnikalar
           </h2>
         </div>
-        <div className="flex justify-around">
+        <div className="flex justify-around flex-wrap">
           <Product />
           <Product />
           <Product />

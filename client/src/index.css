@@ -8,8 +8,74 @@
   box-sizing: border-box;
 }
 
-.font-poppins{
-  font-family: 'Poppins';
+body {
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    overflow-x: hidden;
+  }
+}
+
+.font-poppins {
+  font-family: "Poppins";
+}
+
+#burger-menu {
+  cursor: pointer;
+  height: 27px;
+  width: 27px;
+  margin: 50px;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+#burger-menu span,
+#burger-menu span:before,
+#burger-menu span:after {
+  background: #fff;
+  display: block;
+  height: 2px;
+  opacity: 1;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+}
+#burger-menu span:before,
+#burger-menu span:after {
+  content: "";
+}
+#burger-menu span:before {
+  left: 0px;
+  top: -10px;
+  width: 27px;
+}
+#burger-menu span {
+  right: 0px;
+  top: 13px;
+  width: 27px;
+}
+#burger-menu span:after {
+  left: 0px;
+  top: 10px;
+  width: 27px;
+}
+#burger-menu.close span:before {
+  top: 0px;
+  transform: rotate(90deg);
+  width: 27px;
+}
+#burger-menu.close span {
+  transform: rotate(-45deg);
+  top: 13px;
+  width: 27px;
+}
+#burger-menu.close span:after {
+  top: 0px;
+  left: 0;
+  transform: rotate(90deg);
+  opacity: 0;
+  width: 0;
 }
 
 /* input[type="number"]::-webkit-inner-spin-button,

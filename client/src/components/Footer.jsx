@@ -85,27 +85,27 @@ const Footer = () => {
     //     </div>
     //   </div>
     // </div>
-    <footer className="w-full min-h-[300px] mt-10">
+    <footer className="w-full h-max lg:h-[330px] mt-10">
       <div className="flex flex-col-reverse md:flex-row w-full min-h-[95%]">
         <div className="w-[20%] mx-auto md:mx-0 md:w-[50px] h-full grid grid-rows-1 grid-cols-3 md:grid-rows-3 md:grid-cols-1 mt-4 md:mt-0">
           <a
             href="https://telegram.org"
             target="_blank"
-            className="flex hover:text-white items-center justify-center mb-1 cursor-pointer"
+            className="flex hover:text-white items-center justify-center m-1 cursor-pointer"
           >
             <FaTelegram fontSize={"30px"} />
           </a>
           <a
             href="https://instagram.com"
             target="_blank"
-            className="flex hover:text-white items-center justify-center my-1 cursor-pointer"
+            className="flex hover:text-white items-center justify-center m-1 cursor-pointer"
           >
             <FaSquareInstagram fontSize={"30px"} />
           </a>
           <a
             href="https://facebook.com"
             target="_blank"
-            className="flex hover:text-white items-center justify-center mt-1 cursor-pointer"
+            className="flex hover:text-white items-center justify-center m-1 cursor-pointer"
           >
             <FaFacebook fontSize={"30px"} />
           </a>
@@ -144,6 +144,20 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="w-full text-center mt-10 border-t flex items-center justify-center">
+        <h1 className="mt-3">
+          Copyright &copy; {new Date().getFullYear()} Agromash Elit MCHJ Co.,
+          Ltd. - Design:{" "}
+          <a
+            href="https://instagram.com/black_evilenemy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-serif"
+          >
+            Evil Enemy
+          </a>
+        </h1>
       </div>
     </footer>
   );
