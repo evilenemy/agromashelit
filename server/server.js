@@ -4,12 +4,10 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const cors = require("cors");
 
-const categoryRoute = require("./routes/category");
-const productRoute = require("./routes/product");
-const userRoute = require("./routes/user");
-const savedRoute = require("./routes/saved");
-const orderRoute = require("./routes/order");
-const eventRoute = require("./routes/event");
+const tractorRoute = require("./routes/tractor")
+const agroRoute = require("./routes/agro")
+const newsRoute = require("./routes/news")
+const orderRoute = require("./routes/order")
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -24,16 +22,10 @@ app.use((req, _, next) => {
 });
 app.use("/uploads", express.static("uploads"));
 
-// manual requests
-app.get("/", (_, res) => res.send("Hello!"));
-
-// requests
-app.use("/api/category", categoryRoute);
-app.use("/api/product", productRoute);
-app.use("/api/users", userRoute);
-app.use("/api/saved", savedRoute);
-app.use("/api/order", orderRoute);
-app.use("/api/event", eventRoute);
+app.use("/api/tractor", tractorRoute);
+app.use("/api/agro", agroRoute)
+app.use("/api/news", newsRoute)
+app.use("/api/order", orderRoute)
 
 mongoose
   .connect(process.env.MONGO_URI)
