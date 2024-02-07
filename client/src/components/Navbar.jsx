@@ -47,9 +47,9 @@ const Navbar = () => {
         }`}
       >
         <div className="w-full h-14 flex z-10 justify-center py-1 bg-transparent">
-          {/* <div className="w-[85%] hidden lg:flex max-w-[1400px] justify-between items-center">
-            <h1 className="text-2xl font-medium text-white">Logo</h1>
-            <img src="/logo.jpg" className="w-[75px]" alt="Pic" />
+          <div className="w-[85%] hidden lg:flex max-w-[1400px] justify-between items-center">
+            {/* <h1 className="text-2xl font-medium text-white">Logo</h1> */}
+            <Link to={"/"} className="cursor-pointer"><img src="/logo.jpg" className="w-[75px]" alt="Pic" /></Link>
             <ul className="grid grid-rows-1 grid-cols-4 px-4 py-2">
               <li
                 className={`text-center cursor-pointer text-lg ${
@@ -62,9 +62,9 @@ const Navbar = () => {
                     : "hover:text-green-500 text-green-400"
                 }`}
               >
-                <Link to="/" className="hover:text-green-500">
+                <a href="/" className="hover:text-green-500">
                   Bosh sahifa
-                </Link>
+                </a>
               </li>
               <li
                 className={`text-center cursor-pointer text-lg ${
@@ -77,7 +77,7 @@ const Navbar = () => {
                     : "hover:text-green-500 text-green-400"
                 }`}
               >
-                <Link to={"/tractor"} className="hover:text-green-500">
+                <Link to={"/tractors"} className="hover:text-green-500">
                   Traktorlar
                 </Link>
               </li>
@@ -92,7 +92,7 @@ const Navbar = () => {
                     : "hover:text-green-500 text-green-400"
                 }`}
               >
-                <Link to={"/agrotechnic"} className="hover:text-green-500">
+                <Link to={"/agrotechnics"} className="hover:text-green-500">
                   Agrotexnikalar
                 </Link>
               </li>
@@ -112,7 +112,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-          </div>  */}
+          </div> 
           <div className="w-[100%] flex lg:hidden justify-between items-center">
             {/* <h1 className="text-2xl font-medium text-white">Logo</h1> */}
             <img src="/logo.jpg" className="w-[75px]" alt="Pic" />
@@ -126,7 +126,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* <ul
+      <ul
         className={`w-[80vw] fixed top-0 right-0 ${
           open ? "" : "translate-x-full"
         } z-40 h-[100vh] flex flex-col px-4 py-2 bg-black transition duration-1000`}
@@ -192,7 +192,7 @@ const Navbar = () => {
             Yangiliklar
           </Link>
         </li>
-      </ul> */}
+      </ul>
     </>
     // <header className="">
     //   <nav className="navbar navbar-expand-lg">
