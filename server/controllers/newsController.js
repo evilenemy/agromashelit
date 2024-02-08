@@ -31,9 +31,8 @@ const createNews = async (req, res) => {
     else uploaded_images = [...req.files.images];
 
     for (const image of uploaded_images) {
-      const filePath = `\\uploads\\news\\${new Date().getTime()} - ${
-        image.name
-      }`;
+      const fileName = `${new Date().getTime()} - ${image.name}`;
+      const filePath = `\\uploads\\news\\${fileName}`;
       const fileSize =
         image.size / 1024 > 1024
           ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
@@ -41,7 +40,7 @@ const createNews = async (req, res) => {
       image.mv(path.resolve(__dirname, "..") + filePath, (err) => {
         if (err) return;
       });
-      images.push({ path: filePath, size: fileSize });
+      images.push({ path: filePath, size: fileSize, name: fileName });
     }
 
     const news = await News.create({
@@ -94,9 +93,8 @@ const updateNews = async (req, res) => {
       else work_images = [...uploaded_images];
 
       for (const image of work_images) {
-        const filePath = `\\uploads\\news\\${new Date().getTime()} - ${
-          image.name
-        }`;
+        const fileName = `${new Date().getTime()} - ${image.name}`;
+        const filePath = `\\uploads\\news\\${fileName}`;
         const fileSize =
           image.size / 1024 > 1024
             ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
@@ -104,7 +102,7 @@ const updateNews = async (req, res) => {
         image.mv(path.resolve(__dirname, "..") + filePath, (err) => {
           if (err) return;
         });
-        images.push({ path: filePath, size: fileSize });
+        images.push({ path: filePath, size: fileSize, name: fileName });
       }
       news.images = images;
     }

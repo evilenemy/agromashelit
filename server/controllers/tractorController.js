@@ -31,9 +31,8 @@ const createTractor = async (req, res) => {
     else uploaded_images = [...req.files.images];
 
     for (const image of uploaded_images) {
-      const filePath = `\\uploads\\tractors\\${new Date().getTime()} - ${
-        image.name
-      }`;
+      const fileName = `${new Date().getTime()} - ${image.name}`;
+      const filePath = `\\uploads\\tractors\\${fileName}`;
       const fileSize =
         image.size / 1024 > 1024
           ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
@@ -41,7 +40,7 @@ const createTractor = async (req, res) => {
       image.mv(path.resolve(__dirname, "..") + filePath, (err) => {
         if (err) return;
       });
-      images.push({ path: filePath, size: fileSize });
+      images.push({ path: filePath, size: fileSize, name: fileName });
     }
 
     const tractor = await Tractor.create({
@@ -82,7 +81,7 @@ const updateTractor = async (req, res) => {
     if (description) tractor.description = description;
     if (price) tractor.price = price;
 
-    if (req.files.images) {
+    if (req.files && req.files.images) {
       const uploaded_images = req.files.images;
       let work_images = [];
       const images = [];
@@ -95,9 +94,8 @@ const updateTractor = async (req, res) => {
       else work_images = [...uploaded_images];
 
       for (const image of work_images) {
-        const filePath = `\\uploads\\tractor\\${new Date().getTime()} - ${
-          image.name
-        }`;
+        const fileName = `${new Date().getTime()} - ${image.name}`;
+        const filePath = `\\uploads\\tractors\\${fileName}`;
         const fileSize =
           image.size / 1024 > 1024
             ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
@@ -105,14 +103,14 @@ const updateTractor = async (req, res) => {
         image.mv(path.resolve(__dirname, "..") + filePath, (err) => {
           if (err) return;
         });
-        images.push({ path: filePath, size: fileSize });
+        images.push({ path: filePath, size: fileSize, name: fileName });
       }
       tractor.images = images;
     }
     tractor.save();
     return res.status(200).json(tractor);
   } catch (err) {
-    return res.status(400).jsoon({ error: err.message });
+    return res.status(400).json({ error: err.message });
   }
 };
 

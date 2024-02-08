@@ -13,7 +13,7 @@ const router = express.Router();
 router.get("/", getAllTechnics);
 
 // DOWNLOAD IMAGES
-router.get("/download", downloadAgroImages);
+router.get("/download/:id", downloadAgroImages);
 
 // GET SINGLE
 router.get("/:id", getTechnic);

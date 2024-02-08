@@ -31,9 +31,8 @@ const createTechnic = async (req, res) => {
     else uploaded_images = [...req.files.images];
 
     for (const image of uploaded_images) {
-      const filePath = `\\uploads\\agrotechnics\\${new Date().getTime()} - ${
-        image.name
-      }`;
+      const fileName = `${new Date().getTime()} - ${image.name}`;
+      const filePath = `\\uploads\\agrotechnics\\${fileName}`;
       const fileSize =
         image.size / 1024 > 1024
           ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
@@ -41,7 +40,7 @@ const createTechnic = async (req, res) => {
       image.mv(path.resolve(__dirname, "..") + filePath, (err) => {
         if (err) return;
       });
-      images.push({ path: filePath, size: fileSize });
+      images.push({ path: filePath, size: fileSize, name: fileName });
     }
 
     const agro = await Agro.create({
@@ -95,9 +94,8 @@ const updateTechnic = async (req, res) => {
       else work_images = [...uploaded_images];
 
       for (const image of work_images) {
-        const filePath = `\\uploads\\agrotechnics\\${new Date().getTime()} - ${
-          image.name
-        }`;
+        const fileName = `${new Date().getTime()} - ${image.name}`;
+        const filePath = `\\uploads\\agrotechnics\\${fileName}`;
         const fileSize =
           image.size / 1024 > 1024
             ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
@@ -105,7 +103,7 @@ const updateTechnic = async (req, res) => {
         image.mv(path.resolve(__dirname, "..") + filePath, (err) => {
           if (err) return;
         });
-        images.push({ path: filePath, size: fileSize });
+        images.push({ path: filePath, size: fileSize, name: fileName });
       }
       agro.images = images;
     }

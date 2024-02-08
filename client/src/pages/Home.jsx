@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "../components/Product";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
                 <h4>Agromash Elit</h4>
                 <p style={{ color: "black" }}>Biz bilan eng oldinda bo'ling!</p>
                 <a
-                  href="https://telegram.me/agrotexnika_olami"
+                  href="https://telegram.me/"
                   className="bg-green-400 py-2 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300 "
                 >
                   aloqa uchun
@@ -34,10 +35,10 @@ const Home = () => {
                 <h4>Agromash Elit</h4>
                 <p style={{ color: "black" }}>Biz bilan eng oldinda bo'ling!</p>
                 <a
-                  href="https://telegram.me/agrotexnika_olami"
+                  href="https://telegram.me/"
                   className="bg-green-400 py-2 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300 "
                 >
-                  contact us
+                  aloqa uchun
                 </a>
               </div>
             </div>
@@ -52,10 +53,10 @@ const Home = () => {
                 <h4>Agromash Elit</h4>
                 <p style={{ color: "black" }}>Biz bilan eng oldinda bo'ling!</p>
                 <a
-                  href="contact.html"
+                  href="https://telegram.me/"
                   className="bg-green-400 py-2 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300 "
                 >
-                  contact us
+                  aloqa uchun
                 </a>
               </div>
             </div>
@@ -73,10 +74,7 @@ const Home = () => {
               </span>
             </div>
             <div className="col-md-4">
-              <a
-                href="https://telegram.me/"
-                className="border-button"
-              >
+              <a href="https://telegram.me/" className="border-button">
                 Aloqa uchun
               </a>
             </div>
@@ -143,18 +141,22 @@ const Home = () => {
                     Biz sizga eng sifatli narxda chet el texnikasini kirgazib
                     beramiz!
                   </p>
-                  <a
-                    href="https://telegram.me/agrotexnika_olami"
+                  <Link
+                    to={"/tractors"}
                     className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
                   >
                     Buyurtma berish
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-4">
               <div className="service-item">
-                <img src="/texnikxizmat.jpg" className="h-[250px] object-cover" alt="" />
+                <img
+                  src="/texnikxizmat.jpg"
+                  className="h-[250px] object-cover"
+                  alt=""
+                />
                 <div className="down-content">
                   <h4 className="text-black">Qulay to'lov</h4>
                   <p>
@@ -162,12 +164,12 @@ const Home = () => {
                     Har qanday texnikani lizing va malum muddatga bo'lib
                     berishga siz xohlaganday qulaylik yaratishga tayyormiz.
                   </p>
-                  <a
-                    href="https://telegram.me/agrotexnika_olami"
+                  <Link
+                    to={"/tractors"}
                     className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
                   >
                     Buyurtma berish
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -181,12 +183,12 @@ const Home = () => {
                     sharoitga qaramay servis va ta'mirlash ishlarini olib
                     boramiz.
                   </p>
-                  <a
-                    href="https://telegram.me/agrotexnika_olami"
+                  <Link
+                    to={"/tractors"}
                     className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
                   >
                     Buyurtma berish
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -222,12 +224,12 @@ const Home = () => {
                   <br />
                   Manzilimiz Toshkent shaxar Chilonzor 34 B{" "}
                 </p>
-                <a
-                  href=""
+                <Link
+                  to={"/tractors"}
                   className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
                 >
                   Buyurtma berish
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-md-6 align-self-center">

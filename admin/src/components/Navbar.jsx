@@ -4,25 +4,28 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = ({ isAdmin, setIsAdmin }) => {
   const location = useLocation();
 
-  const [isProduct, setIsProduct] = useState(
+  const [isTractor, setIsTractor] = useState(
     location.pathname === "/" || location.pathname === "/create"
   );
-  const [isCategory, setIsCategory] = useState(
-    location.pathname === "/categories" ||
-      location.pathname === "/categories/create"
+  const [isAgro, setIsAgro] = useState(
+    location.pathname === "/agro" || location.pathname === "/agro/create"
   );
-  const [isEvent, setIsEvent] = useState(
-    location.pathname === "/events" || location.pathname === "/events/create"
+  const [isNews, setIsNews] = useState(
+    location.pathname === "/news" || location.pathname === "/news/create"
   );
-  const [isUser, setIsUser] = useState(
-    location.pathname === "/users" || location.pathname === "/users/create"
+  const [isOrder, setIsOrder] = useState(
+    location.pathname === "/orders" || location.pathname === "/orders/create"
+  );
+  const [isSlider, setIsSlider] = useState(
+    location.pathname === "/slider" || location.pathname === "/slider/create"
   );
 
-  const setActivity = (product, category, event, user) => {
-    setIsProduct(product);
-    setIsCategory(category);
-    setIsEvent(event);
-    setIsUser(user);
+  const setActivity = (tractor, agro, news, order, slider) => {
+    setIsTractor(tractor);
+    setIsAgro(agro);
+    setIsNews(news);
+    setIsOrder(order);
+    setIsSlider(slider);
   };
 
   const logoutAdmin = () => {
@@ -33,56 +36,57 @@ const Navbar = ({ isAdmin, setIsAdmin }) => {
   return (
     <nav className="bg-gray-800 border-b border-b-slate-600 w-full h-16 p-4 flex items-center justify-around select-none">
       <a
-        href="https://nishtyaki.uz"
+        href="#"
         className="text-white text-lg cursor-pointer"
         style={{ fontFamily: "Courgette" }}
       >
-        Nishtyaki
+        Agromash Elit
       </a>
       <div className="min-w-[500px] flex justify-around items-center font-medium">
         <Link
           to="/"
-          onClick={() => setActivity(true, false, false, false)}
+          onClick={() => setActivity(true, false, false, false, false)}
           className={`px-4 py-2 ${
-            isProduct && isAdmin
-              ? "bg-slate-500 text-orange-300"
-              : "text-orange-200"
-          } hover:bg-slate-700 rounded cursor-pointer bg-opacity-20 hover:text-orange-300 transition duration-150`}
+            isTractor && isAdmin && "bg-slate-500"
+          } hover:bg-slate-700 rounded cursor-pointer text-white/90 bg-opacity-20 hover:text-white/100 transition duration-150`}
         >
-          Товар
+          Traktorlar
         </Link>
         <Link
-          to="/categories"
-          onClick={() => setActivity(false, true, false, false)}
+          to="/agro"
+          onClick={() => setActivity(false, true, false, false, false)}
           className={`px-4 py-2 ${
-            isCategory && isAdmin
-              ? "bg-slate-500 text-orange-300"
-              : "text-orange-200"
-          } hover:bg-slate-700 rounded cursor-pointer bg-opacity-20 hover:text-orange-300 transition duration-150`}
+            isAgro && isAdmin && "bg-slate-500"
+          } hover:bg-slate-700 rounded cursor-pointer text-white/90 bg-opacity-20 hover:text-white/100 transition duration-150`}
         >
-          Категория
+          Agro texnikalar
         </Link>
         <Link
-          to="/events"
-          onClick={() => setActivity(false, false, true, false)}
+          to="/news"
+          onClick={() => setActivity(false, false, true, false, false)}
           className={`px-4 py-2 ${
-            isEvent && isAdmin
-              ? "bg-slate-500 text-orange-300"
-              : "text-orange-200"
-          } hover:bg-slate-700 rounded cursor-pointer bg-opacity-20 hover:text-orange-300 transition duration-150`}
+            isNews && isAdmin && "bg-slate-500"
+          } hover:bg-slate-700 rounded cursor-pointer text-white/90 bg-opacity-20 hover:text-white/100 transition duration-150`}
         >
-          Новинки
+          Yangiliklar
         </Link>
         <Link
-          to="/users"
-          onClick={() => setActivity(false, false, false, true)}
+          to="/order"
+          onClick={() => setActivity(false, false, false, true, false)}
           className={`px-4 py-2 ${
-            isUser && isAdmin
-              ? "bg-slate-500 text-orange-300"
-              : "text-orange-200"
-          } hover:bg-slate-700 rounded cursor-pointer bg-opacity-20 hover:text-orange-300 transition duration-150`}
+            isOrder && isAdmin && "bg-slate-500"
+          } hover:bg-slate-700 rounded cursor-pointer text-white/90 bg-opacity-20 hover:text-white/100 transition duration-150`}
         >
-          Пользователей
+          Buyurtmalar
+        </Link>
+        <Link
+          to="/slider"
+          onClick={() => setActivity(false, false, false, false, true)}
+          className={`px-4 py-2 ${
+            isSlider && isAdmin && "bg-slate-500"
+          } hover:bg-slate-700 rounded cursor-pointer text-white/90 bg-opacity-20 hover:text-white/100 transition duration-150`}
+        >
+          Slider
         </Link>
       </div>
       <div
@@ -91,14 +95,14 @@ const Navbar = ({ isAdmin, setIsAdmin }) => {
         } justify-around py-2 items-center min-w-[350px] text-white`}
       >
         <h3>
-          Добро пожаловать,{" "}
+          Xush kelibsiz,{" "}
           <span className="font-medium text-orange-300">admin</span>
         </h3>
         <button
           onClick={logoutAdmin}
           className="bg-red-600 py-2 px-4 rounded hover:bg-red-700 transition duration-150 text-white"
         >
-          Выйти
+          Chiqish
         </button>
       </div>
       <button
@@ -107,7 +111,7 @@ const Navbar = ({ isAdmin, setIsAdmin }) => {
           isAdmin ? "hidden" : ""
         } bg-blue-700 py-2 px-4 rounded hover:bg-blue-800 transition duration-150 text-white`}
       >
-        Войти
+        Kirish
       </button>
     </nav>
   );
