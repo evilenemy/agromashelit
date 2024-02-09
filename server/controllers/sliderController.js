@@ -32,24 +32,24 @@ const deleteImage = async (req, res) => {
 
 const createImage = async (req, res) => {
   try {
-    if (!req.files.images)
+    if (!req.files.image)
       return res.status(400).json({ error: "No files were uploaded." });
-    for (const img of req.files.images) {
-      const fileName = `${new Date().getTime()} - ${image.name}`;
-      const filePath = `\\uploads\\slider\\${fileName}`;
-      const fileSize =
-        img.size / 1024 > 1024
-          ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
-          : `${+(image.size / 1024).toFixed(2)}kb`.replace(".", ",");
-      img.mv(path.resolve(__dirname, "..") + filePath, (err) => {
-        if (err) return;
-      });
-      const image = await Slider.create({
-        path: filePath,
-        size: fileSize,
-        name: fileName,
-      });
-    }
+    const image = req.files.image;
+    const fileName = `${new Date().getTime()} - ${image.name}`;
+    const filePath = `\\uploads\\slider\\${fileName}`;
+    const fileSize =
+      image.size / 1024 > 1024
+        ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
+        : `${+(image.size / 1024).toFixed(2)}kb`.replace(".", ",");
+    image.mv(path.resolve(__dirname, "..") + filePath, (err) => {
+      if (err) return;
+    });
+    const image_ = await Slider.create({
+      path: filePath,
+      size: fileSize,
+      name: fileName,
+    });
+    return res.status(200).json(image_);
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }

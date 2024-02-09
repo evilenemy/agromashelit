@@ -5,6 +5,17 @@ import Authorization from "./pages/Authorization";
 import Tractors from "./pages/Tractors";
 import CreateTractor from "./pages/CreateTractor";
 import TractorDetails from "./pages/TractorDetails";
+import Agros from "./pages/Agros";
+import CreateAgro from "./pages/CreateAgro";
+import AgroDetails from "./pages/AgroDetails";
+import News from "./pages/News";
+import CreateNew from "./pages/CreateNew";
+import NewDetails from "./pages/NewDetails";
+import Orders from "./pages/Orders";
+import OrderDetails from "./pages/OrderDetails";
+import Slider from "./components/Slider";
+import CreateSlider from "./pages/CreateSlider";
+import SliderDetails from "./pages/SliderDetails";
 
 function App() {
   // const [api] = useState("http://188.225.79.240:8000");
@@ -28,10 +39,120 @@ function App() {
           }
         />
         <Route
+          path="/agro"
+          element={
+            isAdmin ? (
+              <Agros api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/news"
+          element={
+            isAdmin ? (
+              <News api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/order"
+          element={
+            isAdmin ? (
+              <Orders api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/slider"
+          element={
+            isAdmin ? (
+              <Slider api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
           path="/create"
           element={
             isAdmin ? (
               <CreateTractor api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/agro/create"
+          element={
+            isAdmin ? (
+              <CreateAgro api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/news/create"
+          element={
+            isAdmin ? (
+              <CreateNew api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/slider/create"
+          element={
+            isAdmin ? (
+              <CreateSlider api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/agro/:id"
+          element={
+            isAdmin ? (
+              <AgroDetails api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/news/:id"
+          element={
+            isAdmin ? (
+              <NewDetails api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/order/:id"
+          element={
+            isAdmin ? (
+              <OrderDetails api={api} />
+            ) : (
+              <Authorization setIsAdmin={setIsAdmin} api={api} />
+            )
+          }
+        />
+        <Route
+          path="/slider/:id"
+          element={
+            isAdmin ? (
+              <SliderDetails api={api} />
             ) : (
               <Authorization setIsAdmin={setIsAdmin} api={api} />
             )

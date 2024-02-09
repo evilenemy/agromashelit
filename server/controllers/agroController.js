@@ -81,7 +81,7 @@ const updateTechnic = async (req, res) => {
     if (description) agro.description = description;
     if (price) agro.price = price;
 
-    if (req.files.images) {
+    if (req.files && req.files.images) {
       const uploaded_images = req.files.images;
       let work_images = [];
       const images = [];
@@ -110,7 +110,7 @@ const updateTechnic = async (req, res) => {
     agro.save();
     return res.status(200).json(agro);
   } catch (err) {
-    return res.status(400).jsoon({ error: err.message });
+    return res.status(400).json({ error: err.message });
   }
 };
 
