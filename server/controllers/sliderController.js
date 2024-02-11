@@ -36,7 +36,7 @@ const createImage = async (req, res) => {
       return res.status(400).json({ error: "No files were uploaded." });
     const image = req.files.image;
     const fileName = `${new Date().getTime()} - ${image.name}`;
-    const filePath = `\\uploads\\slider\\${fileName}`;
+    const filePath = `/uploads/slider/${fileName}`;
     const fileSize =
       image.size / 1024 > 1024
         ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")

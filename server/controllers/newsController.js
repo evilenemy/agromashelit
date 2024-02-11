@@ -32,7 +32,7 @@ const createNews = async (req, res) => {
 
     for (const image of uploaded_images) {
       const fileName = `${new Date().getTime()} - ${image.name}`;
-      const filePath = `\\uploads\\news\\${fileName}`;
+      const filePath = `/uploads/news/${fileName}`;
       const fileSize =
         image.size / 1024 > 1024
           ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
@@ -94,7 +94,7 @@ const updateNews = async (req, res) => {
 
       for (const image of work_images) {
         const fileName = `${new Date().getTime()} - ${image.name}`;
-        const filePath = `\\uploads\\news\\${fileName}`;
+        const filePath = `/uploads/news/${fileName}`;
         const fileSize =
           image.size / 1024 > 1024
             ? `${+(image.size / 1024 / 1024).toFixed(2)}mb`.replace(".", ",")
