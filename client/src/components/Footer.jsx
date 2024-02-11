@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTelegram, FaSquareInstagram, FaFacebook } from "react-icons/fa6";
+import { FaTelegram, FaSquareInstagram, FaYoutube } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -89,58 +89,63 @@ const Footer = () => {
       <div className="flex flex-col-reverse md:flex-row w-full min-h-[95%]">
         <div className="w-[20%] mx-auto md:mx-0 md:w-[50px] h-full grid grid-rows-1 grid-cols-3 md:grid-rows-3 md:grid-cols-1 mt-4 md:mt-0">
           <a
-            href="https://telegram.org"
+            href="https://telegram.me/agromashelit"
             target="_blank"
             className="flex hover:text-white items-center justify-center m-1 cursor-pointer"
           >
             <FaTelegram fontSize={"30px"} />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/agromash.elit"
             target="_blank"
             className="flex hover:text-white items-center justify-center m-1 cursor-pointer"
           >
             <FaSquareInstagram fontSize={"30px"} />
           </a>
           <a
-            href="https://facebook.com"
+            href="https://youtube.com/@agromashelit"
             target="_blank"
             className="flex hover:text-white items-center justify-center m-1 cursor-pointer"
           >
-            <FaFacebook fontSize={"30px"} />
+            <FaYoutube fontSize={"30px"} />
           </a>
         </div>
         <div className="w-[95%] md:w-[calc(100%-300px)] min-h-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div className="mx-1 mt-2">
             <h1 className="text-white/95">Manzil</h1>
             <p className="text-white/60 font-light break-words mt-2 leading-6 text-xs md:text-sm xl:text-base">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Inventore vitae iure nam voluptates doloribus!
+              Toshkent shahri, Segeli tumani, Belariq 15
             </p>
           </div>
           <div className="mx-1 mt-2">
             <h1 className="text-white/95">Biz haqimizda</h1>
             <ul className="text-white/60 font-light break-words mt-2 text-sm xl:text-base">
-              <li>Kontaktlar</li>
-              <li>Biz haqimizda</li>
-              <li>Yangiliklar</li>
-              <li>Galereya</li>
+              <li>
+                <Link to={"/"}>Kontaktlar</Link>
+              </li>
+              <li>
+                <Link to={"/"}>Biz haqimizda</Link>
+              </li>
+              <li>
+                <Link to={"/news"}>Yangiliklar</Link>
+              </li>
             </ul>
           </div>
           <div className="mx-1 mt-2">
             <h1 className="text-white/95">Telefonlar</h1>
             <ul className="text-white/60 font-light break-words mt-2 text-sm xl:text-base">
-              <li>+998 {"(90)"} 824-88-84</li>
-              <li>+998 {"(90)"} 824-88-84</li>
-              <li>+998 {"(90)"} 824-88-84</li>
+              <li>+998 {"(90)"} 470-23-00</li>
             </ul>
           </div>
           <div className="mx-1 mt-2">
             <h1 className="text-white/95">Katalog</h1>
             <ul className="text-white/60 font-light break-words mt-2 text-sm xl:text-base">
-              <li>Traktorlar</li>
-              <li>Agrotexnikalar</li>
-              <li>Boshqa texnikalar</li>
+              <li>
+                <Link to={"/tractors"}>Traktorlar</Link>
+              </li>
+              <li>
+                <Link to={"/agro"}>Agrotexnikalar</Link>
+              </li>
             </ul>
           </div>
         </div>

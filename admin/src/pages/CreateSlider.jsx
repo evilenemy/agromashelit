@@ -36,7 +36,7 @@ const CreateSlider = ({ api }) => {
             to={"/slider"}
             className="text-center text-gray-400 w-[250px] py-2 px-4 m-1 hover:bg-gray-700 hover:text-white rounded text-lg transition duration-150"
           >
-            Slayder rasmini ko'rish
+            Slayder rasmlarini ko'rish
           </Link>
           <Link
             to={"/news/create"}

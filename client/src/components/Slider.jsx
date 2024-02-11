@@ -4,13 +4,15 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Product from "./Product";
 
 const Slider = ({
   slides,
-  slideMode="product",
+  slideMode = "product",
   isPlay = true,
   autoPlay = 2500,
   Navigation_ = true,
+  api,
 }) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -33,7 +35,7 @@ const Slider = ({
       pagination={{
         clickable: true,
       }}
-      navigation={(windowWidth > 960 && slideMode === "image") && Navigation_}
+      navigation={windowWidth > 960 && slideMode === "image" && Navigation_}
       loop={true}
       modules={[Autoplay, Pagination, Navigation]}
       className={`mySwiper w-full ${
@@ -50,20 +52,18 @@ const Slider = ({
       }}
     >
       {slideMode === "image" &&
-        slides.map((image, index) => (
+        slides?.map((image, index) => (
           <SwiperSlide
             key={index}
             style={{
               width: windowWidth + "px",
             }}
             className={`${
-              windowWidth > 960
-                ? "w-full"
-                : "max-w-[1400px]"
+              windowWidth > 960 ? "w-full" : "max-w-[1400px]"
             } cursor-pointer max-h-[450px]`}
           >
             <img
-              src={image.path}
+              src={api + image.path}
               alt="Pic"
               className="w-full max-h-[450px] object-contain rounded-xl"
             />
@@ -71,7 +71,9 @@ const Slider = ({
         ))}
       {slideMode === "product" &&
         slides.map((slide, index) => (
-          <SwiperSlide key={index} className="w-[290px]">{slide}</SwiperSlide>
+          <SwiperSlide key={index} className="w-[290px]">
+            <Product product={slide} api={api} key={slide._id} />
+          </SwiperSlide>
         ))}
     </Swiper>
   );

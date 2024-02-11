@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -14,16 +14,17 @@ const Navbar = () => {
   scrollWatcher.setAttribute("data-scroll-watcher", "");
   primaryHeader?.before(scrollWatcher);
 
-  const nabObserver = new IntersectionObserver((entries) => {
-    setSticking(!entries[0].isIntersecting);
-  });
+  useEffect(() => {
+    const nabObserver = new IntersectionObserver((entries) => {
+      setSticking(!entries[0].isIntersecting);
+    });
+    nabObserver.observe(scrollWatcher);
+  }, []);
 
-  nabObserver.observe(scrollWatcher);
-
-  const handleClick = () => {
-    document.querySelector("#burger-menu").classList.toggle("close");
-    setOpen((prev) => !prev);
-  };
+  // const handleClick = () => {
+  //   document.querySelector("#burger-menu").classList.toggle("close");
+  //   setOpen((prev) => !prev);
+  // };
 
   return (
     <>
@@ -49,7 +50,9 @@ const Navbar = () => {
         <div className="w-full h-14 flex z-10 justify-center py-1 bg-transparent">
           <div className="w-[85%] hidden lg:flex max-w-[1400px] justify-between items-center">
             {/* <h1 className="text-2xl font-medium text-white">Logo</h1> */}
-            <Link to={"/"} className="cursor-pointer"><img src="/logo.jpg" className="w-[75px]" alt="Pic" /></Link>
+            <Link to={"/"} className="cursor-pointer">
+              <img src="/logo.jpg" className="w-[75px]" alt="Pic" />
+            </Link>
             <ul className="grid grid-rows-1 grid-cols-4 px-4 py-2">
               <li
                 className={`text-center cursor-pointer text-lg ${
@@ -112,21 +115,21 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-          </div> 
+          </div>
           <div className="w-[100%] flex lg:hidden justify-between items-center">
             {/* <h1 className="text-2xl font-medium text-white">Logo</h1> */}
             <img src="/logo.jpg" className="w-[75px]" alt="Pic" />
-            <div
+            {/* <div
               id="burger-menu"
               className="fixed top-1 right-1 z-50"
               onClick={handleClick}
             >
               <span></span>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
-      <ul
+      {/* <ul
         className={`w-[80vw] fixed top-0 right-0 ${
           open ? "" : "translate-x-full"
         } z-40 h-[100vh] flex flex-col px-4 py-2 bg-black transition duration-1000`}
@@ -192,7 +195,7 @@ const Navbar = () => {
             Yangiliklar
           </Link>
         </li>
-      </ul>
+      </ul> */}
     </>
     // <header className="">
     //   <nav className="navbar navbar-expand-lg">

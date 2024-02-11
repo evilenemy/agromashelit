@@ -13,9 +13,9 @@ import CreateNew from "./pages/CreateNew";
 import NewDetails from "./pages/NewDetails";
 import Orders from "./pages/Orders";
 import OrderDetails from "./pages/OrderDetails";
-import Slider from "./components/Slider";
 import CreateSlider from "./pages/CreateSlider";
 import SliderDetails from "./pages/SliderDetails";
+import Sliders from "./pages/Sliders";
 
 function App() {
   // const [api] = useState("http://188.225.79.240:8000");
@@ -72,7 +72,7 @@ function App() {
           path="/slider"
           element={
             isAdmin ? (
-              <Slider api={api} />
+              <Sliders api={api} />
             ) : (
               <Authorization setIsAdmin={setIsAdmin} api={api} />
             )

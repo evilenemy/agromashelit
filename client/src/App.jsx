@@ -9,21 +9,24 @@ import Agrotechnics from "./pages/Agrotechnics";
 import SubmitOrder from "./pages/SubmitOrder";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
+import AgroDetails from "./pages/AgroDetails";
 
 function App() {
   // const [api] = useState("http://188.225.79.240:8000");
+  const [api] = useState("http://localhost:8000");
 
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/tractors" element={<Tractors />} />
-        <Route path="/agrotechnics" element={<Agrotechnics />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:id" element={<NewsDetail />} />
-        <Route path="/submit" element={<SubmitOrder />} />
+        <Route path="/" element={<Home api={api} />} />
+        <Route path="/tractor/:id" element={<ProductDetail api={api} />} />
+        <Route path="/agro/:id" element={<AgroDetails api={api} />} />
+        <Route path="/tractors" element={<Tractors api={api} />} />
+        <Route path="/agrotechnics" element={<Agrotechnics api={api} />} />
+        <Route path="/news" element={<News api={api} />} />
+        <Route path="/news/:id" element={<NewsDetail api={api} />} />
+        <Route path="/submit" element={<SubmitOrder api={api} />} />
       </Routes>
       <Footer />
     </Router>

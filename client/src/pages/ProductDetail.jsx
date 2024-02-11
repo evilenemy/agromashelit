@@ -2,27 +2,31 @@ import React, { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import Product from "../components/Product";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ProductDetail = () => {
-  const [product, setProduct] = useState({
-    maxProduct: 30,
-    productPrice: 2330000,
-    images: [
-      { path: "/product-1.jpg" },
-      { path: "/product-1.jpg" },
-      { path: "/product-1.jpg" },
-      { path: "/product-1.jpg" },
-    ],
-    title:
-      "Смартфон Honor X7b 8/128 GB, большой 6.8 FullHD+ экран, LTE + термокувшин Honor",
-    description:
-      "Совершенные спортивные моменты начинаются с идеальной одежды. Наш универсальный мужской спортивный костюм — это тот незаменимый гардеробный элемент, который дарит комфорт и свободу движений во всех ситуациях. Будь то для активного отдыха, спорта, прогулок или туризма, наш костюм станет надежным спутником в любых приключениях и является идеальным выбором для школы, путешествий и повседневной носки. Спортивный костюм это твой верный компаньон на все случаи жизни! Идеальное сочетание трендового дизайна и удобства - вот что делает этот костюм на самом деле незаменимым. Прекрасно подходит для активного образа жизни, этот мужской спортивный костюм станет твоим надежным спутником в спортзале, на тренировках по физкультуре, а также на прогулках с друзьями или даже на охоте. Даже холодная погода не страшна с таким комплектом, и ты можешь смело отправляться на каток или играть в футбол или баскетбол, зная, что наш костюм обеспечит тебе тепло и комфорт. Благодаря натуральной ткани из хлопка, этот спортивный костюм обеспечит непревзойденный уровень комфорта в любое время года. Он легко приспособится под любую погоду, будь то жаркое лето, прохладная весна, теплая осень или холодная зима. Ткань сохраняет свою форму даже после многих стирок, а костюм идеально садится на разные фигуры, будь то узкие или широкие плечи. Прямой крой и оптимальная длина брюк делают этот спортивный костюм универсальным - он подойдет как для стройных, так и для полных мужчин. Широкая резинка в поясе штанов не сдавливает и не вызывает дискомфорта, обеспечивая максимальную свободу движений. Он идеально подходит для любого случая, не сковывая ваши движения и при этом выглядит просто непревзойденно стильно и современно. Собирай овации в повседневной жизни, выбирая стильный и модный комплект, который гарантированно привлечет внимание окружающих. Любимому мужчине этот спортивный костюм станет идеальным подарком на день рождения или на новый год - он оценит его комфортность и стильность.",
-  });
-  const [isSaved, setIsSaved] = useState(false);
-  const [lengthProduct, setLengthProduct] = useState(1);
+const ProductDetail = ({ api }) => {
+  const { id } = useParams();
+  const navigation = useNavigate();
+
+  const [product, setProduct] = useState({ title: "" });
+  const [tractors, setTractors] = useState([]);
+  const load = () => {
+    axios
+      .get(`${api}/api/tractor/${id}`)
+      .then((res) => setProduct(res.data))
+      .catch((err) => alert("Something went wrong, please try again later."));
+
+    axios
+      .get(`${api}/api/tractor`)
+      .then((res) => setTractors(res.data))
+      .catch((err) => alert("Something went wrong, please try again later."));
+  };
+
+  const submitOrder = () => navigation("/submit", { state: product });
 
   useEffect(() => {
-    document.querySelector("title").innerHTML = "Nishtyaki | " + product.title;
+    load();
   }, []);
 
   const format = (num) =>
@@ -38,7 +42,7 @@ const ProductDetail = () => {
             transition={{ delay: 1 }}
             className="w-[90%] mt-4 max-h-[450px] md:w-5/12 p-4 sticky top-2"
           >
-            <Slider slides={product.images} slideMode={"image"} />
+            <Slider slides={product.images} api={api} slideMode={"image"} />
           </motion.div>
           <div className="w-[90%] md:w-[55%] mt-4 sticky top-2">
             <motion.h1
@@ -70,16 +74,14 @@ const ProductDetail = () => {
                 transition={{ delay: 2 }}
                 className="text-xl w-[40%] font-medium flex items-center justify-between mt-2"
               >
-                {format(lengthProduct * product.productPrice)} so'm{" "}
-                {/* <p className="line-through text-sm text-[#7f8286]">
-                3 234 000 сум
-              </p> */}
+                {format(product.price)} so'm
               </motion.h1>
             </div>
             <motion.button
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 2.5 }}
+              onClick={submitOrder}
               className="w-1/2 mt-4 py-2 px-4 bg-green-400 hover:bg-green-500 duration-150 font-medium text-white rounded-md"
             >
               Buyurtma berish
@@ -119,36 +121,9 @@ const ProductDetail = () => {
         >
           <h1 className="text-2xl font-medium">O'xshash tovarlar</h1>
           <div className="flex justify-between">
-            <Product
-              product={{
-                _id: "4329dfsa1dfasdf6",
-                images: [{ path: "/product-1.jpg" }],
-                title: "Test Product",
-                description:
-                  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error sequi amet necessitatibus eos quis.",
-                price: 10000,
-              }}
-            />
-            <Product
-              product={{
-                _id: "43239dfsadfasdf6",
-                images: [{ path: "/product-1.jpg" }],
-                title: "Test Product",
-                description:
-                  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error sequi amet necessitatibus eos quis.",
-                price: 10000,
-              }}
-            />
-            <Product
-              product={{
-                _id: "4329dfsadfasrdf6",
-                images: [{ path: "/product-1.jpg" }],
-                title: "Test Product",
-                description:
-                  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error sequi amet necessitatibus eos quis.",
-                price: 10000,
-              }}
-            />
+            {tractors.slice(0, 3).map((tractor) => (
+              <Product product={tractor} key={tractor._id} api={api} />
+            ))}
           </div>
         </motion.div>
       </div>

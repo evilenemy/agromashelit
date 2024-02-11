@@ -1,31 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "../components/Product";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Agro from "../components/Agro";
 
-const Home = () => {
+const Home = ({ api }) => {
+  const [slider, setSlider] = useState([]);
+  const [tractors, setTractors] = useState([]);
+  const [agros, setAgros] = useState([]);
+
+  const load = () => {
+    axios
+      .get(`${api}/api/slider`)
+      .then((res) => setSlider(res.data))
+      .catch((err) => alert("Something went wrong, please try again later."));
+    axios
+      .get(`${api}/api/tractor`)
+      .then((res) => setTractors(res.data))
+      .catch((err) => alert("Something went wrong, please try again later."));
+    axios
+      .get(`${api}/api/agro`)
+      .then((res) => setAgros(res.data))
+      .catch((err) => alert("Something went wrong, please try again later."));
+  };
+
+  useState(() => {
+    load();
+  }, []);
+
   return (
     <>
       <div className="main-banner header-text" id="top">
         <div className="Modern-Slider text-white">
-          <div className="item item-1">
-            <div className="img-fill">
-              <div className="text-content">
-                <h6 style={{ color: "black" }}>
-                  Qishloq xo'jalik texnikalari <br />
-                  olamidiga xalol savdo
-                </h6>
-                <h4>Agromash Elit</h4>
-                <p style={{ color: "black" }}>Biz bilan eng oldinda bo'ling!</p>
-                <a
-                  href="https://telegram.me/"
-                  className="bg-green-400 py-2 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300 "
+          {slider &&
+            slider.map((image, index) => (
+              <div className={`item`} key={image._id}>
+                <div
+                  className={`img-fill`}
+                  style={{
+                    backgroundImage: `url('${api + image.path}')`,
+                  }}
                 >
-                  aloqa uchun
-                </a>
+                  <div className="text-content">
+                    <h6 style={{ color: "black" }}>
+                      Qishloq xo'jalik texnikalari <br />
+                      olamidiga xalol savdo
+                    </h6>
+                    <h4>Agromash Elit</h4>
+                    <p style={{ color: "black" }}>
+                      Biz bilan eng oldinda bo'ling!
+                    </p>
+                    <a
+                      href="https://telegram.me/"
+                      className="bg-green-400 py-2 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300 "
+                    >
+                      aloqa uchun
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="item item-2">
+            ))}
+          {/* <div className="item item-2">
             <div className="img-fill">
               <div className="text-content">
                 <h6 style={{ color: "black" }}>
@@ -61,6 +96,24 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <div className="item item-4">
+            <div className="img-fill">
+              <div className="text-content">
+                <h6 style={{ color: "black" }}>
+                  Qishloq xo'jalik texnikalari <br />
+                  olamidiga xalol savdo
+                </h6>
+                <h4>Agromash Elit</h4>
+                <p style={{ color: "black" }}>Biz bilan eng oldinda bo'ling!</p>
+                <a
+                  href="https://telegram.me/"
+                  className="bg-green-400 py-2 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300 "
+                >
+                  aloqa uchun
+                </a>
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
 
@@ -281,9 +334,9 @@ const Home = () => {
           </h2>
         </div>
         <div className="flex justify-around flex-wrap">
-          <Product />
-          <Product />
-          <Product />
+          {tractors.slice(0, 3).map((tractor) => (
+            <Product product={tractor} key={tractor._id} api={api} />
+          ))}
         </div>
       </div>
 
@@ -294,9 +347,9 @@ const Home = () => {
           </h2>
         </div>
         <div className="flex justify-around flex-wrap">
-          <Product />
-          <Product />
-          <Product />
+          {agros.slice(0, 3).map((agro) => (
+            <Agro product={agro} key={agro._id} api={api} />
+          ))}
         </div>
       </div>
 
@@ -307,12 +360,12 @@ const Home = () => {
           </h2>
         </div>
         <div className="flex justify-around flex-wrap">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {tractors.slice(0, 3).map((tractor) => (
+            <Product product={tractor} key={tractor._id} api={api} />
+          ))}
+          {agros.slice(0, 3).map((agro) => (
+            <Agro product={agro} key={agro._id} api={api} />
+          ))}
         </div>
       </div>
 
@@ -324,14 +377,37 @@ const Home = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="owl-partners owl-carousel">
-                  <div className="partner-item">
-                    <img src="/assets/images/client-01.png" title="1" alt="1" />
-                  </div>
-
-                  <div className="partner-item">
-                    <img src="/assets/images/client-03.png" title="3" alt="3" />
-                  </div>
+                <div className="flex flex-wrap justify-between">
+                  <img
+                    src="/akpil.png"
+                    className="w-[200px] object-contain"
+                    title="1"
+                    alt="1"
+                  />
+                  <img
+                    src="/image_2024-02-10_21-08-29.png"
+                    className="w-[200px] object-contain"
+                    title="1"
+                    alt="2"
+                  />
+                  <img
+                    src="/harmak.png"
+                    title="3"
+                    alt="3"
+                    className="w-[200px] object-contain"
+                  />
+                  <img
+                    src="/unia.jpg"
+                    title="4"
+                    alt="4"
+                    className="w-[200px] object-contain"
+                  />
+                  <img
+                    src="/yot.png"
+                    title="5"
+                    alt="5"
+                    className="w-[200px] object-contain"
+                  />
                 </div>
               </div>
             </div>
