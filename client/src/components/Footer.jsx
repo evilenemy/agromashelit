@@ -121,13 +121,19 @@ const Footer = () => {
             <h1 className="text-white/95">Biz haqimizda</h1>
             <ul className="text-white/60 font-light break-words mt-2 text-sm xl:text-base">
               <li>
-                <Link to={"/"}>Kontaktlar</Link>
+                <Link className="hover:text-white/90 duration-150" to={"/"}>
+                  Kontaktlar
+                </Link>
               </li>
               <li>
-                <Link to={"/"}>Biz haqimizda</Link>
+                <Link className="hover:text-white/90 duration-150" to={"/"}>
+                  Biz haqimizda
+                </Link>
               </li>
               <li>
-                <Link to={"/news"}>Yangiliklar</Link>
+                <Link className="hover:text-white/90 duration-150" to={"/news"}>
+                  Yangiliklar
+                </Link>
               </li>
             </ul>
           </div>
@@ -141,10 +147,17 @@ const Footer = () => {
             <h1 className="text-white/95">Katalog</h1>
             <ul className="text-white/60 font-light break-words mt-2 text-sm xl:text-base">
               <li>
-                <Link to={"/tractors"}>Traktorlar</Link>
+                <Link
+                  className="hover:text-white/90 duration-150"
+                  to={"/tractors"}
+                >
+                  Traktorlar
+                </Link>
               </li>
               <li>
-                <Link to={"/agro"}>Agrotexnikalar</Link>
+                <Link className="hover:text-white/90 duration-150" to={"/agro"}>
+                  Agrotexnikalar
+                </Link>
               </li>
             </ul>
           </div>

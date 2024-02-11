@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Slider from "../components/Slider";
-import Product from "../components/Product";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const NewsDetail = ({ api }) => {
   const { id } = useParams();
   const [news, setNews] = useState({
-    images: [
-      { path: "/product-1.jpg" },
-      { path: "/product-1.jpg" },
-      { path: "/product-1.jpg" },
-      { path: "/product-1.jpg" },
-    ],
+    images: [],
     title:
       "Смартфон Honor X7b 8/128 GB, большой 6.8 FullHD+ экран, LTE + термокувшин Honor",
     description:
@@ -45,14 +44,46 @@ const NewsDetail = ({ api }) => {
               {news.title}
             </motion.h1>
           </div>
-          <motion.div
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="w-[90%] mt-4 max-h-[450px] p-4 sticky top-2"
+          <Swiper
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper w-[90%] mt-5 p-0 px-0 h-[500px] md:w-10/12"
+            style={{
+              "--swiper-pagination-color": "rgba(250,250,250,.8)",
+              "--swiper-pagination-bullet-inactive-color":
+                "rgba(250,250,250,.4)",
+              "--swiper-pagination-bullet-inactive-opacity": "1",
+              "--swiper-pagination-bullet-size": "8px",
+              "--swiper-pagination-bullet-horizontal-gap": "2px",
+              "--swiper-navigation-color": "#000",
+              "--swiper-navigation-size": "30px",
+            }}
           >
-            <Slider slides={news.images} slideMode={"image"} />
-          </motion.div>
+            {news.images.map((image, index) => (
+              <SwiperSlide
+                style={{
+                  backgroundImage: `url('${
+                    api +
+                    String(image.path)
+                      .replace("\\", "/")
+                      .replace("\\", "/")
+                      .replace("\\", "/")
+                  }')`,
+                  width: "95%",
+                }}
+                className="bg-center bg-no-repeat bg-cover"
+                key={index}
+              ></SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <motion.div
           initial={{ y: -100, opacity: 0 }}

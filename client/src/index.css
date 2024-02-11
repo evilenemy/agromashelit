@@ -26,7 +26,7 @@ body {
   cursor: pointer;
   height: 27px;
   width: 27px;
-  margin: 50px;
+  margin-right: 5%;
   overflow: visible;
   position: relative;
   z-index: 2;
@@ -34,7 +34,7 @@ body {
 #burger-menu span,
 #burger-menu span:before,
 #burger-menu span:after {
-  background: #fff;
+  background: red;
   display: block;
   height: 2px;
   opacity: 1;

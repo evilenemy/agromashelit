@@ -10,6 +10,7 @@ const TractorDetails = ({ api }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [images, setImages] = useState([]);
+  const [prevImages, setPrevImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -22,7 +23,7 @@ const TractorDetails = ({ api }) => {
         setTitle(res.data.title);
         setDescription(res.data.description);
         setPrice(res.data.price);
-        setImages(res.data.images);
+        setPrevImages(res.data.images);
         setLoading(false);
       })
       .catch((err) => {
@@ -156,7 +157,7 @@ const TractorDetails = ({ api }) => {
             </div>
 
             <div className="w-[80%] mb-4 border-2 rounded border-blue-400 py-2 px-4">
-              {images.map((image, index) => (
+              {prevImages.map((image, index) => (
                 <div key={index}>
                   <img
                     src={api + image.path}

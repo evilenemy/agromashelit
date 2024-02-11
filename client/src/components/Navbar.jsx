@@ -19,12 +19,12 @@ const Navbar = () => {
       setSticking(!entries[0].isIntersecting);
     });
     nabObserver.observe(scrollWatcher);
-  }, []);
+  }, [scrollWatcher]);
 
-  // const handleClick = () => {
-  //   document.querySelector("#burger-menu").classList.toggle("close");
-  //   setOpen((prev) => !prev);
-  // };
+  const handleClick = () => {
+    document.querySelector("#burger-menu").classList.toggle("close");
+    setOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -41,11 +41,15 @@ const Navbar = () => {
           location.pathname === "/"
             ? `${
                 sticking
-                  ? "text-green-400 bg-white/95 transition-colors duration-200 border-b"
+                  ? `text-green-400 ${
+                      open ? "bg-black" : "bg-white/95"
+                    } transition-colors duration-200 border-b`
                   : ""
               }`
-            : "text-green-400 bg-white/95 transition-colors duration-200 border-b"
-        }`}
+            : `text-green-400 ${
+                open ? "bg-black" : "bg-white/95"
+              } transition duration-200 border-b`
+        } ${open ? "bg-black" : ""}`}
       >
         <div className="w-full h-14 flex z-10 justify-center py-1 bg-transparent">
           <div className="w-[85%] hidden lg:flex max-w-[1400px] justify-between items-center">
@@ -118,21 +122,21 @@ const Navbar = () => {
           </div>
           <div className="w-[100%] flex lg:hidden justify-between items-center">
             {/* <h1 className="text-2xl font-medium text-white">Logo</h1> */}
-            <img src="/logo.jpg" className="w-[75px]" alt="Pic" />
-            {/* <div
+            <img src="/logo.jpg" className="w-[75px] ml-[5%]" alt="Pic" />
+            <div
               id="burger-menu"
               className="fixed top-1 right-1 z-50"
               onClick={handleClick}
             >
               <span></span>
-            </div> */}
+            </div>
           </div>
         </div>
       </nav>
-      {/* <ul
-        className={`w-[80vw] fixed top-0 right-0 ${
-          open ? "" : "translate-x-full"
-        } z-40 h-[100vh] flex flex-col px-4 py-2 bg-black transition duration-1000`}
+      <ul
+        className={`w-[80vw] fixed top-16 bottom-0 left-20
+        ${open ? "" : "translate-x-full"}  
+        z-40 h-[88vh] flex md:hidden flex-col px-4 py-2 bg-black transition duration-1000`}
       >
         <li
           className={`text-center cursor-pointer text-lg p-2 mt-20 ${
@@ -148,20 +152,11 @@ const Navbar = () => {
           <Link to="/" className="hover:text-green-500">
             Bosh sahifa
           </Link>
-          <button onClick={() => setOpen((prev) => !prev)}>Click me</button>
         </li>
         <li
-          className={`text-center cursor-pointer text-lg p-2 ${
-            location.pathname === "/"
-              ? `${
-                  sticking
-                    ? "hover:text-green-500 text-green-400"
-                    : "hover:text-white/100 text-white/80"
-                } cursor-pointer transition duration-200 text-xl min-w-[150px]`
-              : "hover:text-green-500 text-green-400"
-          }`}
+          className={`text-center cursor-pointer text-lg p-2 hover:text-white/100 text-white/80 transition duration-200 min-w-[150px]`}
         >
-          <Link to={"/tractor"} className="hover:text-green-500">
+          <Link to={"/tractors"} className="hover:text-green-500">
             Traktorlar
           </Link>
         </li>
@@ -176,7 +171,7 @@ const Navbar = () => {
               : "hover:text-green-500 text-green-400"
           }`}
         >
-          <Link to={"/agrotechnic"} className="hover:text-green-500">
+          <Link to={"/agrotechnics"} className="hover:text-green-500">
             Agrotexnikalar
           </Link>
         </li>
@@ -195,7 +190,7 @@ const Navbar = () => {
             Yangiliklar
           </Link>
         </li>
-      </ul> */}
+      </ul>
     </>
     // <header className="">
     //   <nav className="navbar navbar-expand-lg">

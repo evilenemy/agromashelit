@@ -40,7 +40,7 @@ const Slider = ({
       modules={[Autoplay, Pagination, Navigation]}
       className={`mySwiper w-full ${
         slideMode === "image" && windowWidth > 960 ? "h-full" : "h-[90%]"
-      } mt-5`}
+      }`}
       style={{
         "--swiper-pagination-color": "rgba(150,150,150,.1)",
         "--swiper-pagination-bullet-inactive-color": "rgba(150,150,150,.4)",
@@ -63,9 +63,15 @@ const Slider = ({
             } cursor-pointer max-h-[450px]`}
           >
             <img
-              src={api + image.path}
+              src={
+                api +
+                image.path
+                  .replace("\\", "/")
+                  .replace("\\", "/")
+                  .replace("\\", "/")
+              }
               alt="Pic"
-              className="w-full max-h-[450px] object-contain rounded-xl"
+              className="w-full max-h-[450px] object-contain bg-center rounded-xl"
             />
           </SwiperSlide>
         ))}

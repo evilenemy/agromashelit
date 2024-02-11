@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Product from "../components/Product";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Agro from "../components/Agro";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const Home = ({ api }) => {
   const [slider, setSlider] = useState([]);
@@ -32,13 +38,78 @@ const Home = ({ api }) => {
     <>
       <div className="main-banner header-text" id="top">
         <div className="Modern-Slider text-white">
-          {slider &&
+          <Swiper
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper w-full h-[95vh]"
+            style={{
+              "--swiper-pagination-color": "rgba(250,250,250,.8)",
+              "--swiper-pagination-bullet-inactive-color":
+                "rgba(250,250,250,.4)",
+              "--swiper-pagination-bullet-inactive-opacity": "1",
+              "--swiper-pagination-bullet-size": "8px",
+              "--swiper-pagination-bullet-horizontal-gap": "2px",
+              "--swiper-navigation-color": "#000",
+              "--swiper-navigation-size": "30px",
+            }}
+          >
+            {slider.map((image, index) => (
+              <SwiperSlide
+                style={{
+                  backgroundImage: `url('${
+                    api +
+                    String(image.path)
+                      .replace("\\", "/")
+                      .replace("\\", "/")
+                      .replace("\\", "/")
+                  }')`,
+                  backgroundAttachment: "center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                }}
+                key={index}
+                className={`item item-${index + 1}`}
+              >
+                <div className="text-content">
+                  <h6 style={{ color: "black" }}>
+                    Qishloq xo'jalik texnikalari <br />
+                    olamidiga xalol savdo
+                  </h6>
+                  <h4>Agromash Elit</h4>
+                  <p style={{ color: "black" }}>
+                    Biz bilan eng oldinda bo'ling!
+                  </p>
+                  <a
+                    href="https://telegram.me/agromashelit"
+                    className="bg-green-400 py-2 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300 "
+                  >
+                    aloqa uchun
+                  </a>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          {/* {slider &&
             slider.map((image, index) => (
-              <div className={`item`} key={image._id}>
+              <div className={`item item-${index + 1}`} key={image._id}>
                 <div
                   className={`img-fill`}
                   style={{
-                    backgroundImage: `url('${api + image.path}')`,
+                    backgroundImage: `url('${
+                      api +
+                      String(image.path)
+                        .replace("\\", "/")
+                        .replace("\\", "/")
+                        .replace("\\", "/")
+                    }')`,
                   }}
                 >
                   <div className="text-content">
@@ -59,7 +130,7 @@ const Home = ({ api }) => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} */}
           {/* <div className="item item-2">
             <div className="img-fill">
               <div className="text-content">
@@ -127,7 +198,10 @@ const Home = ({ api }) => {
               </span>
             </div>
             <div className="col-md-4">
-              <a href="https://telegram.me/" className="border-button">
+              <a
+                href="https://telegram.me/agromashelit"
+                className="border-button"
+              >
                 Aloqa uchun
               </a>
             </div>
@@ -275,7 +349,7 @@ const Home = ({ api }) => {
                   yengilashtirish uchun yaratilgan Biz bilan enag katta lizing
                   firmalari hamkorlik da ishlashadi.
                   <br />
-                  Manzilimiz Toshkent shaxar Chilonzor 34 B{" "}
+                  Toshkent shahri, Segeli tumani, Belariq 15{" "}
                 </p>
                 <Link
                   to={"/tractors"}
@@ -377,16 +451,16 @@ const Home = ({ api }) => {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="flex flex-wrap justify-between">
+                <div className="flex flex-wrap justify-around md:justify-between">
                   <img
                     src="/akpil.png"
-                    className="w-[200px] object-contain"
+                    className="w-[200px] object-contain mb-14"
                     title="1"
                     alt="1"
                   />
                   <img
                     src="/image_2024-02-10_21-08-29.png"
-                    className="w-[200px] object-contain"
+                    className="w-[200px] object-contain mb-14"
                     title="1"
                     alt="2"
                   />
@@ -394,13 +468,13 @@ const Home = ({ api }) => {
                     src="/harmak.png"
                     title="3"
                     alt="3"
-                    className="w-[200px] object-contain"
+                    className="w-[200px] object-contain mb-14"
                   />
                   <img
                     src="/unia.jpg"
                     title="4"
                     alt="4"
-                    className="w-[200px] object-contain"
+                    className="w-[200px] object-contain mb-14"
                   />
                   <img
                     src="/yot.png"

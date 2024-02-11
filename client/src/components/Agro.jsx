@@ -17,7 +17,11 @@ const Agro = ({
       to={`/agro/${product._id}`}
       className="w-[340px] p-1 pb-3 bg-zinc-100 text-white rounded my-4"
     >
-      <img src={api + product.images[0].path} className="" alt="Pic" />
+      <img
+        src={api + product.images[0].path}
+        className="w-full max-h-[240px] object-cover rounded"
+        alt="Pic"
+      />
       <div className="down-content">
         <h1
           className={`text-xl p-1 mt-2 line-clamp-1 text-black font-bold font-poppins`}

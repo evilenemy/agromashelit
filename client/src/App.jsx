@@ -13,7 +13,7 @@ import AgroDetails from "./pages/AgroDetails";
 
 function App() {
   // const [api] = useState("http://188.225.79.240:8000");
-  const [api] = useState("http://localhost:8000");
+  const [api] = useState("http://192.168.100.7:8000");
 
   return (
     <Router>
