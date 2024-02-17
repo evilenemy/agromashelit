@@ -85,7 +85,7 @@ const Footer = () => {
     //     </div>
     //   </div>
     // </div>
-    <footer className="w-full h-max lg:h-[330px] mt-10">
+    <footer className="w-full lg:h-[330px] mt-10">
       <div className="flex flex-col-reverse md:flex-row w-full min-h-[95%]">
         <div className="w-[20%] mx-auto md:mx-0 md:w-[50px] h-full grid grid-rows-1 grid-cols-3 md:grid-rows-3 md:grid-cols-1 mt-4 md:mt-0">
           <a
@@ -168,12 +168,12 @@ const Footer = () => {
           Copyright &copy; {new Date().getFullYear()} Agromash Elit MCHJ Co.,
           Ltd. - Design:{" "}
           <a
-            href="https://instagram.com/black_evilenemy"
+            href="https://t.me/Nr_Projects"
             target="_blank"
             rel="noopener noreferrer"
             className="font-serif"
           >
-            Evil Enemy
+            Ultimate_Coder
           </a>
         </h1>
       </div>

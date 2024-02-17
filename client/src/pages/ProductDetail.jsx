@@ -16,12 +16,110 @@ const ProductDetail = ({ api }) => {
   const navigation = useNavigate();
 
   const [product, setProduct] = useState({
-    title: "",
-    description: "",
-    images: [],
-    price: "",
+    _id: "65c87c6522f1356507726730",
+    title: "Lorem ipsum, dolor",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+    price: 3440000,
+    images: [
+      {
+        path: "/product-1.jpg",
+        size: "693,58kb",
+        name: "1707637861712 - product-1.jpg",
+      },
+      {
+        path: "/product-1.jpg",
+        size: "500,61kb",
+        name: "1707637861712 - tractor-1.jpg",
+      },
+      {
+        path: "/product-1.jpg",
+        size: "654,62kb",
+        name: "1707637861712 - tractor-3.jpg",
+      },
+    ],
+    createdAt: "2024-02-11T07:51:01.721Z",
+    updatedAt: "2024-02-11T07:51:01.721Z",
+    __v: 0,
   });
-  const [tractors, setTractors] = useState([]);
+  const [tractors, setTractors] = useState([
+    {
+      _id: "65c87bf122f135650772671a",
+      title: "Lorem ipsum, dolor.",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      price: 4500000,
+      images: [
+        {
+          path: "/product-1.jpg",
+          size: "693,58kb",
+          name: "1707637745319 - product-1.jpg",
+        },
+        {
+          path: "/product-1.jpg",
+          size: "550,91kb",
+          name: "1707637745338 - texnikxizmat.jpg",
+        },
+        {
+          path: "/product-1.jpg",
+          size: "18,97kb",
+          name: "1707637745338 - tractor-2.jpg",
+        },
+      ],
+      createdAt: "2024-02-11T07:49:05.790+00:00",
+      updatedAt: "2024-02-11T07:51:42.200+00:00",
+      __v: 0,
+    },
+    {
+      _id: "65c87c6522f1356507726730",
+      title: "Lorem ipsum, dolor",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      price: 3440000,
+      images: [
+        {
+          path: "/product-1.jpg",
+          size: "693,58kb",
+          name: "1707637861712 - product-1.jpg",
+        },
+        {
+          path: "/product-1.jpg",
+          size: "500,61kb",
+          name: "1707637861712 - tractor-1.jpg",
+        },
+        {
+          path: "/product-1.jpg",
+          size: "654,62kb",
+          name: "1707637861712 - tractor-3.jpg",
+        },
+      ],
+      createdAt: "2024-02-11T07:51:01.721+00:00",
+      updatedAt: "2024-02-11T07:51:01.721+00:00",
+      __v: 0,
+    },
+    {
+      _id: "65c87c7c22f1356507726733",
+      title: "Lorem ipsum, dolor",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      price: 7600000,
+      images: [
+        {
+          path: "/product-1.jpg",
+          size: "165,23kb",
+          name: "1707638612312 - 22.jpg",
+        },
+        {
+          path: "/product-1.jpg",
+          size: "257,09kb",
+          name: "1707638612313 - about-image.jpg",
+        },
+      ],
+      createdAt: "2024-02-11T07:51:24.493+00:00",
+      updatedAt: "2024-02-11T08:03:32.318+00:00",
+      __v: 0,
+    },
+  ]);
   const load = () => {
     axios
       .get(`${api}/api/tractor/${id}`)
@@ -74,13 +172,10 @@ const ProductDetail = ({ api }) => {
             {product.images.map((image, index) => (
               <SwiperSlide
                 style={{
-                  backgroundImage: `url('${
-                    api +
-                    String(image.path)
-                      .replace("\\", "/")
-                      .replace("\\", "/")
-                      .replace("\\", "/")
-                  }')`,
+                  backgroundImage: `url('${api + String(image.path)
+                    .replace("\\", "/")
+                    .replace("\\", "/")
+                    .replace("\\", "/")}')`,
                   width: "95%",
                   backgroundAttachment: "center",
                   backgroundRepeat: "no-repeat",

@@ -15,12 +15,116 @@ const AgroDetails = ({ api }) => {
   const navigation = useNavigate();
 
   const [product, setProduct] = useState({
-    title: "",
-    description: "",
-    images: [],
-    price: 0,
+    _id: "65c783d11163e7345501d63e",
+    title: "Lorem, ipsum dolor.",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+    price: 123123123,
+    images: [
+      {
+        path: "/qulay to'lov.jpg",
+        size: "33,43kb",
+        name: "1707638140267 - qulay to'lov.jpg",
+      },
+      {
+        path: "/qulay to'lov.jpg",
+        size: "157,56kb",
+        name: "1707638140268 - sifat.jpeg",
+      },
+      {
+        path: "/qulay to'lov.jpg",
+        size: "113,6kb",
+        name: "1707638140268 - tractor-6.jpg",
+      },
+    ],
+    createdAt: "2024-02-10T14:10:25.215Z",
+    updatedAt: "2024-02-11T07:55:40.272Z",
+    __v: 1,
   });
-  const [agros, setAgros] = useState([]);
+  const [agros, setAgros] = useState([
+    {
+      _id: "65c783e21163e7345501d641",
+      title: "Lorem ipsum, dolor",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      price: 21312312,
+      images: [
+        {
+          // path: "\\uploads\\agrotechnics\\1707638111091 - qulay to'lov.jpg",
+          path: "/qulay to'lov.jpg",
+          size: "33,43kb",
+          name: "1707638111091 - qulay to'lov.jpg",
+        },
+        {
+          path: "/qulay to'lov.jpg",
+          size: "157,56kb",
+          name: "1707638111092 - sifat.jpeg",
+        },
+      ],
+      createdAt: "2024-02-10T14:10:42.396Z",
+      updatedAt: "2024-02-11T07:55:11.096Z",
+      __v: 1,
+    },
+    {
+      _id: "65c783d11163e7345501d63e",
+      title: "Lorem ipsum, dolor",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      price: 123123123,
+      images: [
+        {
+          path: "/qulay to'lov.jpg",
+          size: "33,43kb",
+          name: "1707638140267 - qulay to'lov.jpg",
+        },
+        {
+          path: "/qulay to'lov.jpg",
+          size: "157,56kb",
+          name: "1707638140268 - sifat.jpeg",
+        },
+        {
+          path: "/qulay to'lov.jpg",
+          size: "113,6kb",
+          name: "1707638140268 - tractor-6.jpg",
+        },
+      ],
+      createdAt: "2024-02-10T14:10:25.215Z",
+      updatedAt: "2024-02-11T07:55:40.272Z",
+      __v: 1,
+    },
+    {
+      _id: "65c783be1163e7345501d63b",
+      title: "Lorem ipsum dolor",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      price: 1114320000,
+      images: [
+        {
+          path: "/qulay to'lov.jpg",
+          size: "33,43kb",
+          name: "1707638157072 - qulay to'lov.jpg",
+        },
+        {
+          path: "/qulay to'lov.jpg",
+          size: "157,56kb",
+          name: "1707638157072 - sifat.jpeg",
+        },
+        {
+          path: "/qulay to'lov.jpg",
+          size: "550,91kb",
+          name: "1707638157072 - texnikxizmat.jpg",
+        },
+        {
+          path: "/qulay to'lov.jpg",
+          size: "113,6kb",
+          name: "1707638157072 - tractor-6.jpg",
+        },
+      ],
+      createdAt: "2024-02-10T14:10:06.911Z",
+      updatedAt: "2024-02-11T07:55:57.077Z",
+      __v: 1,
+    },
+  ]);
   const load = () => {
     axios
       .get(`${api}/api/agro/${id}`)
@@ -71,13 +175,10 @@ const AgroDetails = ({ api }) => {
             {product.images.map((image, index) => (
               <SwiperSlide
                 style={{
-                  backgroundImage: `url('${
-                    api +
-                    String(image.path)
-                      .replace("\\", "/")
-                      .replace("\\", "/")
-                      .replace("\\", "/")
-                  }')`,
+                  backgroundImage: `url('${api + String(image.path)
+                    .replace("\\", "/")
+                    .replace("\\", "/")
+                    .replace("\\", "/")}')`,
                   width: "95%",
                   backgroundAttachment: "center",
                   backgroundRepeat: "no-repeat",
@@ -91,7 +192,7 @@ const AgroDetails = ({ api }) => {
             <motion.h1
               initial={{ y: -200, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1.5 }}
+              transition={{ delay: 0.5 }}
               className="text-2xl mt-2 font-medium"
             >
               {product.title}
@@ -99,14 +200,14 @@ const AgroDetails = ({ api }) => {
             <motion.hr
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.5 }}
+              transition={{ delay: 0.5 }}
               className="my-10"
             />
             <div className="mt-5">
               <motion.h3
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 2 }}
+                transition={{ delay: 1 }}
                 className="font-normal"
               >
                 Narx:
@@ -114,7 +215,7 @@ const AgroDetails = ({ api }) => {
               <motion.h1
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 2 }}
+                transition={{ delay: 1 }}
                 className="text-xl w-[40%] font-medium flex items-center justify-between mt-2"
               >
                 {format(product.price)} so'm{" "}
@@ -126,7 +227,7 @@ const AgroDetails = ({ api }) => {
             <motion.button
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 2.5 }}
+              transition={{ delay: 1.5 }}
               onClick={submitOrder}
               className="w-1/2 mt-4 py-2 px-4 bg-green-400 hover:bg-green-500 duration-150 font-medium text-white rounded-md"
             >

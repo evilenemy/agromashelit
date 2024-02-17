@@ -42,14 +42,14 @@ const Navbar = () => {
             ? `${
                 sticking
                   ? `text-green-400 ${
-                      open ? "bg-black" : "bg-white/95"
+                      open ? "bg-black/90" : "bg-white/95"
                     } transition-colors duration-200 border-b`
                   : ""
               }`
             : `text-green-400 ${
-                open ? "bg-black" : "bg-white/95"
+                open ? "bg-black/90" : "bg-white/95"
               } transition duration-200 border-b`
-        } ${open ? "bg-black" : ""}`}
+        } ${open ? "bg-black/90" : ""}`}
       >
         <div className="w-full h-14 flex z-10 justify-center py-1 bg-transparent">
           <div className="w-[85%] hidden lg:flex max-w-[1400px] justify-between items-center">
@@ -134,59 +134,35 @@ const Navbar = () => {
         </div>
       </nav>
       <ul
-        className={`w-[80vw] fixed top-16 bottom-0 left-20
+        className={`w-[80vw] fixed top-[72px] bottom-0 left-[82px]
         ${open ? "" : "translate-x-full"}  
-        z-40 h-[88vh] flex md:hidden flex-col px-4 py-2 bg-black transition duration-1000`}
+        z-40 h-[95vh] flex md:hidden flex-col px-4 py-2 bg-red-600/95 transition duration-1000`}
       >
         <li
-          className={`text-center cursor-pointer text-lg p-2 mt-20 ${
-            location.pathname === "/"
-              ? `${
-                  sticking
-                    ? "hover:text-green-500 text-green-400"
-                    : "hover:text-white/100 text-white/80"
-                } cursor-pointer transition duration-200 text-xl min-w-[150px]`
-              : "hover:text-green-500 text-green-400"
-          }`}
+          className={`text-center cursor-pointer text-lg p-2 mt-5 hover:text-white/100 text-white/80 transition duration-200 min-w-[150px]`}
         >
-          <Link to="/" className="hover:text-green-500">
+          <Link to="/" className="hover:text-white">
             Bosh sahifa
           </Link>
         </li>
         <li
           className={`text-center cursor-pointer text-lg p-2 hover:text-white/100 text-white/80 transition duration-200 min-w-[150px]`}
         >
-          <Link to={"/tractors"} className="hover:text-green-500">
+          <Link to={"/tractors"} className="hover:text-white">
             Traktorlar
           </Link>
         </li>
         <li
-          className={`text-center cursor-pointer text-lg p-2 ${
-            location.pathname === "/"
-              ? `${
-                  sticking
-                    ? "hover:text-green-500 text-green-400"
-                    : "hover:text-white/100 text-white/80"
-                } cursor-pointer transition duration-200 text-xl min-w-[150px]`
-              : "hover:text-green-500 text-green-400"
-          }`}
+          className={`text-center cursor-pointer text-lg p-2 hover:text-white/100 text-white/80 transition duration-200 min-w-[150px]`}
         >
-          <Link to={"/agrotechnics"} className="hover:text-green-500">
+          <Link to={"/agrotechnics"} className="hover:text-white">
             Agrotexnikalar
           </Link>
         </li>
         <li
-          className={`text-center cursor-pointer text-lg p-2 ${
-            location.pathname === "/"
-              ? `${
-                  sticking
-                    ? "hover:text-green-500 text-green-400"
-                    : "hover:text-white/100 text-white/80"
-                } cursor-pointer transition duration-200 text-xl min-w-[150px]`
-              : "hover:text-green-500 text-green-400"
-          }`}
+          className={`text-center cursor-pointer text-lg p-2 hover:text-white/100 text-white/80 transition duration-200 min-w-[150px]`}
         >
-          <Link to={"/news"} className="hover:text-green-500">
+          <Link to={"/news"} className="hover:text-white">
             Yangiliklar
           </Link>
         </li>

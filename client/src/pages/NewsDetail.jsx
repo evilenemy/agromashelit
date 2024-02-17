@@ -12,11 +12,20 @@ import "swiper/css/navigation";
 const NewsDetail = ({ api }) => {
   const { id } = useParams();
   const [news, setNews] = useState({
-    images: [],
-    title:
-      "Смартфон Honor X7b 8/128 GB, большой 6.8 FullHD+ экран, LTE + термокувшин Honor",
+    _id: "65c7865a1163e7345501d655",
+    title: "Lorem, ipsum dolor.",
     description:
-      "Совершенные спортивные моменты начинаются с идеальной одежды. Наш универсальный мужской спортивный костюм — это тот незаменимый гардеробный элемент, который дарит комфорт и свободу движений во всех ситуациях. Будь то для активного отдыха, спорта, прогулок или туризма, наш костюм станет надежным спутником в любых приключениях и является идеальным выбором для школы, путешествий и повседневной носки. Спортивный костюм это твой верный компаньон на все случаи жизни! Идеальное сочетание трендового дизайна и удобства - вот что делает этот костюм на самом деле незаменимым. Прекрасно подходит для активного образа жизни, этот мужской спортивный костюм станет твоим надежным спутником в спортзале, на тренировках по физкультуре, а также на прогулках с друзьями или даже на охоте. Даже холодная погода не страшна с таким комплектом, и ты можешь смело отправляться на каток или играть в футбол или баскетбол, зная, что наш костюм обеспечит тебе тепло и комфорт. Благодаря натуральной ткани из хлопка, этот спортивный костюм обеспечит непревзойденный уровень комфорта в любое время года. Он легко приспособится под любую погоду, будь то жаркое лето, прохладная весна, теплая осень или холодная зима. Ткань сохраняет свою форму даже после многих стирок, а костюм идеально садится на разные фигуры, будь то узкие или широкие плечи. Прямой крой и оптимальная длина брюк делают этот спортивный костюм универсальным - он подойдет как для стройных, так и для полных мужчин. Широкая резинка в поясе штанов не сдавливает и не вызывает дискомфорта, обеспечивая максимальную свободу движений. Он идеально подходит для любого случая, не сковывая ваши движения и при этом выглядит просто непревзойденно стильно и современно. Собирай овации в повседневной жизни, выбирая стильный и модный комплект, который гарантированно привлечет внимание окружающих. Любимому мужчине этот спортивный костюм станет идеальным подарком на день рождения или на новый год - он оценит его комфортность и стильность.",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+    images: [
+      {
+        path: "/assets/images/more-info.jpg",
+        size: "72,29kb",
+        name: "1707574874952 - more-info.jpg",
+      },
+    ],
+    createdAt: "2024-02-10T14:21:14.955Z",
+    updatedAt: "2024-02-10T14:21:14.955Z",
+    __v: 0,
   });
 
   const load = () => {
@@ -70,13 +79,10 @@ const NewsDetail = ({ api }) => {
             {news.images.map((image, index) => (
               <SwiperSlide
                 style={{
-                  backgroundImage: `url('${
-                    api +
-                    String(image.path)
-                      .replace("\\", "/")
-                      .replace("\\", "/")
-                      .replace("\\", "/")
-                  }')`,
+                  backgroundImage: `url('${api + String(image.path)
+                    .replace("\\", "/")
+                    .replace("\\", "/")
+                    .replace("\\", "/")}')`,
                   width: "95%",
                 }}
                 className="bg-center bg-no-repeat bg-cover"

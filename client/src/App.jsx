@@ -12,8 +12,7 @@ import NewsDetail from "./pages/NewsDetail";
 import AgroDetails from "./pages/AgroDetails";
 
 function App() {
-  const [api] = useState("http://91.210.169.195:8000");
-  // const [api] = useState("http://192.168.100.7:8000");
+  const [api] = useState("https://agromashelite.ru");
 
   return (
     <Router>

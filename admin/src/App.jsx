@@ -18,8 +18,7 @@ import SliderDetails from "./pages/SliderDetails";
 import Sliders from "./pages/Sliders";
 
 function App() {
-  const [api] = useState("http://91.210.169.195:8000");
-  // const [api] = useState("http://localhost:8000");
+  const [api] = useState("https://agromashelite.ru");
   const [isAdmin, setIsAdmin] = useState(
     JSON.parse(sessionStorage.getItem("authAdmin")) || false
   );

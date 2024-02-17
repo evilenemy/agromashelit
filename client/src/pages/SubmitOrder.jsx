@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const SubmitOrder = ({ api }) => {
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -13,6 +13,7 @@ const SubmitOrder = ({ api }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    alert("ok");
     axios
       .post(`${api}/api/order`, { name, number })
       .then((res) => alert("Buyurtmangiz muvaffaqiyatli qabul qilindi."))
