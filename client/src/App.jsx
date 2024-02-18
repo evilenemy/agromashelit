@@ -12,7 +12,7 @@ import NewsDetail from "./pages/NewsDetail";
 import AgroDetails from "./pages/AgroDetails";
 
 function App() {
-  const [api] = useState("");
+  const [api] = useState("https://agromashelite.ru");
 
   return (
     <Router>
