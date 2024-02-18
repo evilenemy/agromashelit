@@ -83,16 +83,16 @@ const Tractors = ({ api }) => {
     },
   ]);
 
-  // const load = () => {
-  //   axios
-  //     .get(`${api}/api/tractor`)
-  //     .then((res) => setTractors(res.data))
-  //     .catch((err) => alert("Something went wrong, please try again later."));
-  // };
+  const load = () => {
+    axios
+      .get(`${api}/api/tractor`)
+      .then((res) => setTractors(res.data))
+      .catch((err) => alert("Something went wrong, please try again later."));
+  };
 
-  // useEffect(() => {
-  //   load();
-  // }, []);
+  useEffect(() => {
+    load();
+  }, []);
   return (
     <section>
       <div className="w-[90%] mx-auto">
