@@ -9,7 +9,7 @@ const Authorization = ({ setIsAdmin, api }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    if (login === "" && password === "") {
+    if (login === "agromash" && password === "zdrfXXRpbhvWph8") {
       sessionStorage.setItem("authAdmin", true);
       setIsAdmin(true);
       setError(null);
