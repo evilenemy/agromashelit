@@ -13,21 +13,37 @@ import AgroDetails from "./pages/AgroDetails";
 
 function App() {
   const [api] = useState("https://agromashelite.ru");
+  const [lang, setLang] = useState(
+    JSON.parse(localStorage.getItem("lang")) || "ru"
+  );
 
   return (
     <Router>
-      <Navbar />
+      <Navbar lang={lang} setLang={setLang} />
       <Routes>
-        <Route path="/" element={<Home api={api} />} />
-        <Route path="/tractor/:id" element={<ProductDetail api={api} />} />
-        <Route path="/agro/:id" element={<AgroDetails api={api} />} />
-        <Route path="/tractors" element={<Tractors api={api} />} />
-        <Route path="/agrotechnics" element={<Agrotechnics api={api} />} />
-        <Route path="/news" element={<News api={api} />} />
-        <Route path="/news/:id" element={<NewsDetail api={api} />} />
-        <Route path="/submit" element={<SubmitOrder api={api} />} />
+        <Route path="/" element={<Home api={api} lang={lang} />} />
+        <Route
+          path="/tractor/:id"
+          element={<ProductDetail api={api} lang={lang} />}
+        />
+        <Route
+          path="/agro/:id"
+          element={<AgroDetails api={api} lang={lang} />}
+        />
+        <Route path="/tractors" element={<Tractors api={api} lang={lang} />} />
+        <Route
+          path="/agrotechnics"
+          element={<Agrotechnics api={api} lang={lang} />}
+        />
+        <Route path="/news" element={<News api={api} />} lang={lang} />
+        <Route
+          path="/news/:id"
+          element={<NewsDetail api={api} />}
+          lang={lang}
+        />
+        <Route path="/submit" element={<SubmitOrder api={api} />} lang={lang} />
       </Routes>
-      <Footer />
+      <Footer lang={lang} />
     </Router>
   );
 }

@@ -7,8 +7,16 @@ const tractorSchema = new Schema(
       type: String,
       required: true,
     },
-    description: {
+    title_ru: {
       type: String,
+      required: false,
+    },
+    description: {
+      type: Array,
+      required: true,
+    },
+    description_ru: {
+      type: Array,
       required: true,
     },
     price: {

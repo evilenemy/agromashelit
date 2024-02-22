@@ -3,13 +3,14 @@ import Product from "../components/Product";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Tractors = ({ api }) => {
+const Tractors = ({ api, lang }) => {
   const [tractors, setTractors] = useState([
     {
       _id: "65c87bf122f135650772671a",
       title: "Lorem ipsum, dolor",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      title_ru: "Lorem ipsum, dolor",
+      description: [],
+      description_ru: [],
       price: 4500000,
       images: [
         {
@@ -35,8 +36,9 @@ const Tractors = ({ api }) => {
     {
       _id: "65c87c6522f1356507726730",
       title: "Lorem ipsum, dolor",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      title_ru: "Lorem ipsum, dolor",
+      description: [],
+      description_ru: [],
       price: 3440000,
       images: [
         {
@@ -62,8 +64,7 @@ const Tractors = ({ api }) => {
     {
       _id: "65c87c7c22f1356507726733",
       title: "Lorem ipsum, dolor",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+      description: [],
       price: 7600000,
       images: [
         {
@@ -100,7 +101,7 @@ const Tractors = ({ api }) => {
           to={"/tractors"}
           className="inline-block mt-[100px] text-2xl text-red-400 font-medium cursor-pointer hover:text-red-500 duration-150"
         >
-          Traktorlar
+          {lang === "ru" ? "Тракторы" : "Traktorlar"}
         </Link>
         <div className="w-full flex flex-wrap justify-around">
           {tractors.map((tractor) => (
@@ -110,7 +111,7 @@ const Tractors = ({ api }) => {
         <div className="w-full flex items-center justify-center mt-5">
           <Link to={"/agrotechnics"}>
             <button className="py-2 px-4 bg-red-500 hover:bg-red-600 duration-150 text-white rounded">
-              Agro texnikalar
+              {lang === "ru" ? "Агротехника" : "Agrotexnikalar"}
             </button>
           </Link>
         </div>

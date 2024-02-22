@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const CreateAgro = ({api}) => {
+const CreateAgro = ({ api }) => {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
+  const [titleRu, setTitleRu] = useState("");
   const [description, setDescription] = useState("");
+  const [descriptionRu, setDescriptionRu] = useState("");
   const [price, setPrice] = useState(0);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,7 +19,9 @@ const CreateAgro = ({api}) => {
     setLoading(true);
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("description", description);
+    formData.append("title_ru", titleRu);
+    formData.append("description", description?.split("\n"));
+    formData.append("description_ru", descriptionRu?.split("\n"));
     formData.append("price", price);
     for (const image of images) formData.append("images", image);
 
@@ -75,6 +79,23 @@ const CreateAgro = ({api}) => {
                 required
               />
             </div>
+            <div className="w-[80%] mb-4">
+              <label
+                htmlFor="titleru"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Russian title
+              </label>
+              <input
+                type="text"
+                id="titleru"
+                value={titleRu}
+                onInput={(e) => setTitleRu(e.target.value)}
+                className="outline-none mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Russian title"
+                required
+              />
+            </div>
 
             <div className="w-[80%] mb-4">
               <label
@@ -87,6 +108,23 @@ const CreateAgro = ({api}) => {
                 id="description"
                 value={description}
                 onInput={(e) => setDescription(e.target.value)}
+                rows={3}
+                className="mt-2 outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Description"
+                required
+              />
+            </div>
+            <div className="w-[80%] mb-4">
+              <label
+                htmlFor="descriptionru"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Russian description
+              </label>
+              <textarea
+                id="descriptionru"
+                value={descriptionRu}
+                onInput={(e) => setDescriptionRu(e.target.value)}
                 rows={3}
                 className="mt-2 outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Description"

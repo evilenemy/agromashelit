@@ -5,20 +5,24 @@ const Tractor = ({ tractor, api }) => {
   return (
     <Link
       to={"/" + tractor._id}
-      className="flex justify-around items-center w-[450px] max-h-[150px] py-3 px-5 m-2 my-4 bg-zinc-200 rounded cursor-pointer"
+      className="flex justify-between items-center w-[450px] h-[300px] py-3 px-5 m-2 my-4 bg-zinc-200 rounded cursor-pointer"
     >
       <img
-        width={"140px"}
+        width={"200px"}
+        height={"300px"}
         className="object-cover"
         src={api + tractor.images[0].path}
         alt="Pic"
       />
-      <div className="ml-4">
+      <div className="w-[48%]">
         <h1 className="font-medium">{tractor.title}</h1>
-        <p>
-          {tractor.description.slice(0, 80)}
-          ...
-        </p>
+        <ul>
+          {tractor.description.slice(0, 3).map((text, index) => (
+            <li className="line-clamp-1" key={index}>
+              {text}
+            </li>
+          ))}
+        </ul>
         <h3 className="font-medium">{tractor.price} sum</h3>
       </div>
     </Link>

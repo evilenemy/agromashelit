@@ -20,7 +20,7 @@ const getNew = async (req, res) => {
 
 const createNews = async (req, res) => {
   try {
-    const { title, description } = req.body;
+    const { title, title_ru, description, description_ru } = req.body;
     if (!req.files)
       return res.status(400).json({ error: "No files were uploaded." });
 
@@ -45,7 +45,9 @@ const createNews = async (req, res) => {
 
     const news = await News.create({
       title,
+      title_ru,
       description,
+      description_ru,
       images,
     });
 
@@ -73,11 +75,13 @@ const deleteNews = async (req, res) => {
 const updateNews = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, price } = req.body;
+    const { title, title_ru, description, description_ru, price } = req.body;
 
     const news = await News.findById(id);
     if (title) news.title = title;
+    if (title_ru) news.title_ru = title_ru;
     if (description) news.description = description;
+    if (description_ru) news.description_ru = description_ru;
     if (price) news.price = price;
 
     if (req.files && req.files.images) {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const SubmitOrder = ({ api }) => {
+const SubmitOrder = ({ api, lang }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const SubmitOrder = ({ api }) => {
     alert("ok");
     axios
       .post(`${api}/api/order`, { name, number })
-      .then((res) => alert("Buyurtmangiz muvaffaqiyatli qabul qilindi."))
+      .then((res) => alert(lang === "ru" ? "Ваш заказ успешно получен." : "Buyurtmangiz muvaffaqiyatli qabul qilindi."))
       .catch((res) => alert("Something went wrong, please try again later."));
 
     navigate("/");
@@ -40,14 +40,14 @@ const SubmitOrder = ({ api }) => {
           <input
             className="w-full md:w-[60%] my-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
             type="text"
-            placeholder="Ismingiz"
+            placeholder={lang === "ru" ? "Ваше имя" : "Ismingiz"}
             onInput={(e) => setName(e.target.value)}
             value={name}
           />
           <input
             className="w-full md:w-[60%] bg-gray-200 my-2 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
             type="text"
-            placeholder="Telefon raqam"
+            placeholder={lang === "ru" ? "Номер телефона" : "Telefon raqam"}
             onInput={(e) => setNumber(e.target.value)}
             value={number}
           />
@@ -56,7 +56,7 @@ const SubmitOrder = ({ api }) => {
             type="submit"
             className="py-2 px-4 mt-3 block md:inline-block mx-auto md:mx-0 outline-none rounded bg-red-500 text-white hover:bg-red-600 duration-200"
           >
-            Yuborish
+            {lang === "ru" ? "Отправить" : "Yuborish"}
           </button>
         </form>
       </div>

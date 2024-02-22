@@ -20,7 +20,7 @@ const getTechnic = async (req, res) => {
 
 const createTechnic = async (req, res) => {
   try {
-    const { title, description, price } = req.body;
+    const { title, title_ru, description, description_ru, price } = req.body;
     if (!req.files)
       return res.status(400).json({ error: "No files were uploaded." });
 
@@ -45,7 +45,9 @@ const createTechnic = async (req, res) => {
 
     const agro = await Agro.create({
       title,
+      title_ru,
       description,
+      description_ru,
       price,
       images,
     });
@@ -74,11 +76,13 @@ const deleteTechnic = async (req, res) => {
 const updateTechnic = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, price } = req.body;
+    const { title, title_ru, description, description_ru, price } = req.body;
 
     const agro = await Agro.findById(id);
     if (title) agro.title = title;
+    if (title_ru) agro.title_ru = title_ru;
     if (description) agro.description = description;
+    if (description_ru) agro.description_ru = description_ru;
     if (price) agro.price = price;
 
     if (req.files && req.files.images) {

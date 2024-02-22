@@ -7,9 +7,17 @@ const newsSchema = new Schema(
       type: String,
       required: true,
     },
-    description: {
+    title_ru: {
       type: String,
-      requred: true,
+      required: false
+    },
+    description: {
+      type: Array,
+      required: true,
+    },
+    description_ru: {
+      type: Array,
+      required: true,
     },
     images: {
       type: Array,

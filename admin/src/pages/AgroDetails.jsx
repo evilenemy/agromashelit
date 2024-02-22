@@ -7,7 +7,9 @@ const AgroDetails = ({ api }) => {
   const { id } = useParams();
 
   const [title, setTitle] = useState("");
+  const [titleRu, setTitleRu] = useState("");
   const [description, setDescription] = useState("");
+  const [descriptionRu, setDescriptionRu] = useState("");
   const [price, setPrice] = useState(0);
   const [previmages, setPrevImages] = useState([]);
   const [images, setImages] = useState([]);
@@ -21,7 +23,9 @@ const AgroDetails = ({ api }) => {
       .get(`${api}/api/agro/${id}`)
       .then((res) => {
         setTitle(res.data.title);
-        setDescription(res.data.description);
+        setTitleRu(res.data.title_ru);
+        setDescription(res.data.description.join("\r"));
+        setDescriptionRu(res.data.description_ru.join("\r"));
         setPrice(res.data.price);
         setPrevImages(res.data.images);
         setLoading(false);
@@ -37,7 +41,9 @@ const AgroDetails = ({ api }) => {
     setLoading(true);
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("description", description);
+    formData.append("title_ru", titleRu);
+    formData.append("description", description?.split("\r"));
+    formData.append("description_ru", descriptionRu?.split("\r"));
     formData.append("price", price);
     if (images.length > 0)
       for (const image of images) formData.append("images", image);
@@ -119,6 +125,23 @@ const AgroDetails = ({ api }) => {
                 required
               />
             </div>
+            <div className="w-[80%] mb-4">
+              <label
+                htmlFor="titleru"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Russian title
+              </label>
+              <input
+                type="text"
+                id="titleru"
+                value={titleRu}
+                onInput={(e) => setTitleRu(e.target.value)}
+                className="outline-none disabled:bg-zinc-200 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Rusian title"
+                required
+              />
+            </div>
 
             <div className="w-[80%] mb-4">
               <label
@@ -134,6 +157,23 @@ const AgroDetails = ({ api }) => {
                 rows={3}
                 className="mt-2 outline-none disabled:bg-zinc-200 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Description"
+                required
+              />
+            </div>
+            <div className="w-[80%] mb-4">
+              <label
+                htmlFor="descriptionru"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Russian description
+              </label>
+              <textarea
+                id="descriptionru"
+                value={descriptionRu}
+                onInput={(e) => setDescriptionRu(e.target.value)}
+                rows={3}
+                className="mt-2 outline-none disabled:bg-zinc-200 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Russian description"
                 required
               />
             </div>

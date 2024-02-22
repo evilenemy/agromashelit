@@ -20,7 +20,7 @@ const getTractor = async (req, res) => {
 
 const createTractor = async (req, res) => {
   try {
-    const { title, description, price } = req.body;
+    const { title, title_ru, description, description_ru, price } = req.body;
     if (!req.files)
       return res.status(400).json({ error: "No files were uploaded." });
 
@@ -45,7 +45,9 @@ const createTractor = async (req, res) => {
 
     const tractor = await Tractor.create({
       title,
+      title_ru,
       description,
+      description_ru,
       price,
       images,
     });
@@ -74,7 +76,7 @@ const deleteTractor = async (req, res) => {
 const updateTractor = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, price } = req.body;
+    const { title, title_ru, description, description_ru, price } = req.body;
 
     const tractor = await Tractor.findById(id);
     if (title) tractor.title = title;

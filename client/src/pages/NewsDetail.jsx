@@ -14,8 +14,9 @@ const NewsDetail = ({ api }) => {
   const [news, setNews] = useState({
     _id: "65c7865a1163e7345501d655",
     title: "Lorem, ipsum dolor.",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex tempora aspernatur iste, magni praesentium deserunt repudiandae. Molestiae rem veniam quos error, consectetur corrupti quo voluptatibus soluta, suscipit ab eos voluptatem earum explicabo quidem molestias asperiores, beatae assumenda debitis impedit porro minus delectus inventore! Rem, minus. Accusamus nisi inventore facere velit quia impedit iste perspiciatis alias praesentium obcaecati eos, labore repudiandae quibusdam iure id nihil incidunt ad maiores voluptatibus magni non ea dolorem quidem eveniet! Quidem saepe deleniti maxime voluptatem modi optio numquam quisquam voluptatibus, aut quibusdam fugit totam officiis nulla ipsam. Quidem laudantium ipsam nesciunt ab incidunt, repudiandae provident maxime.",
+    title_ru: "Lorem, ipsum dolor.",
+    description: [],
+    description_ru: [],
     images: [
       {
         path: "/assets/images/more-info.jpg",
@@ -50,7 +51,7 @@ const NewsDetail = ({ api }) => {
               transition={{ delay: 1.5 }}
               className="text-2xl mt-4 font-medium"
             >
-              {news.title}
+              {lang === "ru" ? news.title_ru : news.title}
             </motion.h1>
           </div>
           <Swiper
@@ -79,10 +80,13 @@ const NewsDetail = ({ api }) => {
             {news.images.map((image, index) => (
               <SwiperSlide
                 style={{
-                  backgroundImage: `url('${api + String(image.path)
-                    .replace("\\", "/")
-                    .replace("\\", "/")
-                    .replace("\\", "/")}')`,
+                  backgroundImage: `url('${
+                    api +
+                    String(image.path)
+                      .replace("\\", "/")
+                      .replace("\\", "/")
+                      .replace("\\", "/")
+                  }')`,
                   width: "95%",
                 }}
                 className="bg-center bg-no-repeat bg-cover"
@@ -97,9 +101,13 @@ const NewsDetail = ({ api }) => {
           transition={{ delay: 3 }}
           className="w-full mt-28"
         >
-          <p className="mt-5 w-[70%] mx-auto text-sm leading-6">
-            {news.description}
-          </p>
+          <ul className="mt-5 w-[70%] mx-auto text-sm leading-6">
+            {(lang === "ru" ? news.description_ru : news.description).map(
+              (text, index) => (
+                <li key={index}>{text}</li>
+              )
+            )}
+          </ul>
         </motion.div>
       </div>
     </div>
