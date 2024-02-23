@@ -117,29 +117,47 @@ const Navbar = ({ lang, setLang }) => {
                   {lang === "ru" ? "Новости" : "Yangiliklar"}
                 </Link>
               </li>
-              <li className="w-[110px] flex text-white outline-none focus:rign-0 border-0 focus:bottom-0">
-                <button
-                  className="cursor-pointer flex items-center mx-1"
+              <li className="w-[140px] flex text-white outline-none focus:rign-0 border-0 focus:bottom-0">
+                <a
+                  href="#"
+                  className={`cursor-pointer flex items-center mx-1 ${
+                    location.pathname === "/"
+                      ? `${
+                          sticking
+                            ? "hover:text-red-600 text-red-500"
+                            : "hover:text-white/100 text-white/80"
+                        } cursor-pointer transition duration-200 text-xl w-[120px]`
+                      : "hover:text-red-600 text-red-500"
+                  }`}
                   onClick={() => setLang("ru")}
                 >
                   <img
                     src="/Flag_of_Russia.png"
-                    className="object-cover w-[25px] h-[20px] mx-1"
+                    className="object-cover w-[25px] h-[20px] mx-2"
                     alt="Ru"
                   />
                   RU
-                </button>
-                <button
-                  className="cursor-pointer flex items-center mx-1"
+                </a>
+                <a
+                  href="#"
+                  className={`cursor-pointer flex items-center mx-1 ${
+                    location.pathname === "/"
+                      ? `${
+                          sticking
+                            ? "hover:text-green-500 text-green-400"
+                            : "hover:text-white/100 text-white/80"
+                        } cursor-pointer transition duration-200 text-xl w-[120px]`
+                      : "hover:text-green-500 text-green-400"
+                  }`}
                   onClick={() => setLang("uz")}
                 >
                   <img
                     src="/Flag_of_Uzbekistan.png"
-                    className="object-cover w-[25px] h-[20px] mx-1"
+                    className="object-cover w-[25px] h-[20px] mx-2"
                     alt="Uzb"
                   />
                   UZ
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -187,6 +205,30 @@ const Navbar = ({ lang, setLang }) => {
           <Link to={"/news"} className="hover:text-white">
             {lang === "ru" ? "Новости" : "Yangiliklar"}
           </Link>
+        </li>
+        <li className="w-[110px] flex text-white outline-none focus:rign-0 border-0 focus:bottom-0">
+          <button
+            className="cursor-pointer flex items-center mx-1"
+            onClick={() => setLang("ru")}
+          >
+            <img
+              src="/Flag_of_Russia.png"
+              className="object-cover w-[25px] h-[20px] mx-1"
+              alt="Ru"
+            />
+            RU
+          </button>
+          <button
+            className="cursor-pointer flex items-center mx-1"
+            onClick={() => setLang("uz")}
+          >
+            <img
+              src="/Flag_of_Uzbekistan.png"
+              className="object-cover w-[25px] h-[20px] mx-1"
+              alt="Uzb"
+            />
+            UZ
+          </button>
         </li>
       </ul>
     </>

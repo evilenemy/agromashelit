@@ -3,7 +3,7 @@ import NewsCard from "../components/NewsCard";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const News = ({ api }) => {
+const News = ({ api, lang }) => {
   const [news, setNews] = useState([
     {
       _id: "65c786671163e7345501d658",

@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const NewsDetail = ({ api }) => {
+const NewsDetail = ({ api, lang }) => {
   const { id } = useParams();
   const [news, setNews] = useState({
     _id: "65c7865a1163e7345501d655",

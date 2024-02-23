@@ -208,81 +208,90 @@ const Home = ({ api, lang }) => {
                 </span>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="service-item">
-                <img src="/qulay to'lov.jpg" alt="" />
-                <div className="down-content">
-                  <h4 className="text-black">
-                    {lang === "ru" ? "Высокое качество" : "Oliy sifat"}
-                  </h4>
-                  <p>
-                    {lang === "ru"
-                      ? `Представляем зарубежное оборудование по лучшей цене
-                     мы даем!`
-                      : `Biz sizga eng sifatli narxda chet el texnikasini kirgazib
-                    beramiz!`}
-                  </p>
-                  <Link
-                    to={"/tractors"}
-                    className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
-                  >
-                    {lang === "ru" ? "Разместить заказ" : "Buyurtma berish"}
-                  </Link>
+            <div className="flex justify-around flex-wrap">
+              <div className="w-[400px] h-[470px] mx-2">
+                <div className="service-item">
+                  <img
+                    src="/qulay to'lov.jpg"
+                    className="h-[220px] object-cover"
+                    alt=""
+                  />
+                  <div className="down-content">
+                    <h4 className="text-black">
+                      {lang === "ru" ? "Высокое качество" : "Oliy sifat"}
+                    </h4>
+                    <p>
+                      {lang === "ru"
+                        ? `Мы импортируем зарубежное оборудование по лучшей цене и рекомендуем только качественное и доступное оборудование.`
+                        : `Biz sizga eng sifatli narxda chet el texnikasini kirgazib
+                    beramiz va faqatgina sifatli hamda hamyonbop texnikalarni tavsiya beramiz.`}
+                    </p>
+                    <Link
+                      to={"/tractors"}
+                      className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
+                    >
+                      {lang === "ru" ? "Разместить заказ" : "Buyurtma berish"}
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div className="service-item">
-                <img
-                  src="/texnikxizmat.jpg"
-                  className="h-[250px] object-cover"
-                  alt=""
-                />
-                <div className="down-content">
-                  <h4 className="text-black">
-                    {lang === "ru" ? "Удобная оплата" : "Qulay to'lov"}
-                  </h4>
-                  <p>
-                    {" "}
-                    {lang === "ru"
-                      ? `Взять в аренду любое оборудование и сдать его в аренду на определенный срок
+              <div className="w-[400px] h-[470px] mx-2">
+                <div className="service-item">
+                  <img
+                    src="/texnikxizmat.jpg"
+                    className="h-[220px] object-cover"
+                    alt=""
+                  />
+                  <div className="down-content">
+                    <h4 className="text-black">
+                      {lang === "ru" ? "Удобная оплата" : "Qulay to'lov"}
+                    </h4>
+                    <p>
+                      {" "}
+                      {lang === "ru"
+                        ? `Взять в аренду любое оборудование и сдать его в аренду на определенный срок
                      Мы готовы сделать это так удобно, как вы захотите.`
-                      : `Har qanday texnikani lizing va malum muddatga bo'lib
+                        : `Har qanday texnikani lizing va malum muddatga bo'lib
                     berishga siz xohlaganday qulaylik yaratishga tayyormiz.`}
-                  </p>
-                  <Link
-                    to={"/tractors"}
-                    className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
-                  >
-                    {lang === "ru" ? "Разместить заказ" : "Buyurtma berish"}
-                  </Link>
+                    </p>
+                    <Link
+                      to={"/tractors"}
+                      className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
+                    >
+                      {lang === "ru" ? "Разместить заказ" : "Buyurtma berish"}
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div className="service-item">
-                <img src="/sifat.jpeg" alt="" />
-                <div className="down-content">
-                  <h4 className="text-black">
-                    {lang === "ru"
-                      ? "Техническое обслуживание"
-                      : "Texnik xizmat"}
-                  </h4>
-                  <p>
-                    {lang === "ru"
-                      ? `Все виды сельскохозяйственной техники
+              <div className="w-[400px] h-[470px] mx-2">
+                <div className="service-item">
+                  <img
+                    src="/sifat.jpeg"
+                    className="h-[220px] object-cover"
+                    alt=""
+                  />
+                  <div className="down-content">
+                    <h4 className="text-black">
+                      {lang === "ru"
+                        ? "Техническое обслуживание"
+                        : "Texnik xizmat"}
+                    </h4>
+                    <p>
+                      {lang === "ru"
+                        ? `Все виды сельскохозяйственной техники
                      проведение сервисных и ремонтных работ несмотря на условия
                      мы пойдем.`
-                      : `Barcha turdagi qishloq xo'jaligi texnikalari har qanday
+                        : `Barcha turdagi qishloq xo'jaligi texnikalari har qanday
                     sharoitga qaramay servis va ta'mirlash ishlarini olib
                     boramiz.`}
-                  </p>
-                  <Link
-                    to={"/tractors"}
-                    className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
-                  >
-                    {lang === "ru" ? "Разместить заказ" : "Buyurtma berish"}
-                  </Link>
+                    </p>
+                    <Link
+                      to={"/tractors"}
+                      className="bg-green-400 py-2 px-4 inline-block rounded hover:bg-white hover:text-green-400 transition duration-300 "
+                    >
+                      {lang === "ru" ? "Разместить заказ" : "Buyurtma berish"}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

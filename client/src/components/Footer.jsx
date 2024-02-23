@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Footer = ({ lang }) => {
   return (
-    <footer className="w-full max-w-[1400px] box-border lg:h-[330px] mt-10">
-      <div className="flex flex-col-reverse md:flex-row w-full min-h-[95%]">
+    <footer className="w-full box-border lg:h-[330px] mt-10">
+      <div className="flex flex-col-reverse md:flex-row w-full max-w-[1400px] mx-auto min-h-[95%]">
         <div className="w-[20%] mx-auto md:mx-0 md:w-[50px] h-full grid grid-rows-1 grid-cols-3 md:grid-rows-3 md:grid-cols-1 mt-4 md:mt-0">
           <a
             href="https://t.me/agromashelituz"

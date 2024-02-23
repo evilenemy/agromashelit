@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Agro from "../components/Agro";
 
-const Agrotechnics = ({ api }) => {
+const Agrotechnics = ({ api, lang }) => {
   const [agros, setAgros] = useState([
     {
       _id: "65c783e21163e7345501d641",
