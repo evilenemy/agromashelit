@@ -129,7 +129,10 @@ const Navbar = ({ lang, setLang }) => {
                         } cursor-pointer transition duration-200 text-xl w-[120px]`
                       : "hover:text-red-600 text-red-500"
                   }`}
-                  onClick={() => setLang("ru")}
+                  onClick={() => {
+                    localStorage.setItem("lang", JSON.stringify("ru"));
+                    setLang("ru");
+                  }}
                 >
                   <img
                     src="/Flag_of_Russia.png"
@@ -149,7 +152,10 @@ const Navbar = ({ lang, setLang }) => {
                         } cursor-pointer transition duration-200 text-xl w-[120px]`
                       : "hover:text-green-500 text-green-400"
                   }`}
-                  onClick={() => setLang("uz")}
+                  onClick={() => {
+                    localStorage.setItem("lang", JSON.stringify("uz"));
+                    setLang("uz");
+                  }}
                 >
                   <img
                     src="/Flag_of_Uzbekistan.png"

@@ -10,25 +10,38 @@ const SubmitOrder = ({ api, lang }) => {
   const [number, setNumber] = useState("");
   const [product] = useState(location.state);
 
+  useEffect(() => {
+    if (!location.state) {
+      console.clear()
+      alert("Something went wrong, please try again later.");
+      navigate("/");
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert("ok");
-    axios
-      .post(`${api}/api/order`, { name, number })
-      .then((res) => alert(lang === "ru" ? "Ваш заказ успешно получен." : "Buyurtmangiz muvaffaqiyatli qabul qilindi."))
-      .catch((res) => alert("Something went wrong, please try again later."));
-
-    navigate("/");
+    location.state &&
+      axios
+        .post(`${api}/api/order`, { name, number, product })
+        .then((res) => {
+          alert(
+            lang === "ru"
+              ? "Ваш заказ успешно получен! Мы свяжемся с вами в ближайшее время."
+              : "Buyurtmangiz muvaffaqiyatli qabul qilindi! Siz bilan tez orada bog'lanamiz."
+          );
+          navigate("/");
+        })
+        .catch((res) => alert("Something went wrong, please try again later."));
   };
 
   return (
     <section className="w-[95%] max-w-[1400px] md:w-[80%] p-4 mt-[100px] mx-auto">
-      <h1 className="text-lg font-medium">{product.title}</h1>
+      <h1 className="text-lg font-medium">{product?.title}</h1>
       <div className="w-full p-2 flex flex-col md:flex-row mt-5">
         <div className="w-full md:w-[50%]">
           <img
-            src={api + product.images[0].path}
+            src={api + product?.images[0].path}
             className="max-w-[50%] mx-auto object-contain"
             alt="Pic"
           />

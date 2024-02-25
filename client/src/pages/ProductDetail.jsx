@@ -16,30 +16,14 @@ const ProductDetail = ({ api, lang }) => {
 
   const [product, setProduct] = useState({
     _id: "",
-    title: "Lorem ipsum, dolor",
-    title_ru: "Lorem ipsum dolor",
+    title: "",
+    title_ru: "",
     description: [],
     description_ru: [],
-    price: 3440000,
-    images: [
-      {
-        path: "/product-1.jpg",
-        size: "693,58kb",
-        name: "1707637861712 - product-1.jpg",
-      },
-      {
-        path: "/product-1.jpg",
-        size: "500,61kb",
-        name: "1707637861712 - tractor-1.jpg",
-      },
-      {
-        path: "/product-1.jpg",
-        size: "654,62kb",
-        name: "1707637861712 - tractor-3.jpg",
-      },
-    ],
-    createdAt: "2024-02-11T07:51:01.721Z",
-    updatedAt: "2024-02-11T07:51:01.721Z",
+    price: 0,
+    images: [],
+    createdAt: "",
+    updatedAt: "",
     __v: 0,
   });
   const [tractors, setTractors] = useState([]);
@@ -167,12 +151,12 @@ const ProductDetail = ({ api, lang }) => {
           <h1 className="text-center">
             {lang === "ru" ? "Описание продукта" : "Tovar tavsifi"}
           </h1>
-          <ul className="mt-5 w-[70%] mx-auto text-sm leading-6">
+          <ul className="mt-5 mx-auto w-[40%] text-sm leading-6">
             {(lang === "ru" ? product.description_ru : product.description).map(
               (text, index) => (
                 <li
                   key={index}
-                  className="text-sm line-clamp-1 font-poppins leading-6 text-zinc-600"
+                  className="font-poppins text-center leading-7 text-zinc-600"
                 >
                   {text}
                 </li>

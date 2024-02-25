@@ -14,20 +14,20 @@ const Product = ({
   return (
     <Link
       to={`/tractor/${product._id}`}
-      className="w-[550px] bg-zinc-200 p-1 pr-2 flex justify-between text-white rounded my-4 relative"
+      className="w-[180px] md:w-[550px] bg-zinc-200 p-1 flex flex-col md:flex-row justify-between text-white rounded my-4 relative"
     >
       <img
         src={api + product.images[0].path}
-        className="w-[200px] h-[300px] object-cover rounded"
+        className="w-full md:w-[200px] h-[160px] md:h-[300px] object-cover rounded"
         alt="Pic"
       />
-      <div className="w-[60%]">
+      <div className="w-[100%] md:w-[60%]">
         <h1
-          className={`text-lg p-1 line-clamp-1 text-black font-bold font-poppins`}
+          className={`text-sm md:text-lg p-1 line-clamp-1 text-black font-semibold md:font-bold font-poppins text-center md:text-left`}
         >
           {product.title}
         </h1>
-        <ul>
+        <ul className="hidden md:block">
           {product.description
             .slice(
               0,
@@ -47,7 +47,7 @@ const Product = ({
         </h3> */}
         <button
           onClick={submitOrder}
-          className="bg-green-400 py-2 absolute bottom-4 px-4 inline-block mt-2 rounded ml-2 hover:bg-white hover:text-green-400 transition duration-300"
+          className="w-[90%] bg-green-400 py-2 text-xs md:text-base px-4 mt-2 ml-[50%] -translate-x-1/2 md:translate-x-0 md:ml-0 mb-4 block rounded hover:bg-white hover:text-green-400 transition duration-300"
         >
           Buyurtma berish
         </button>

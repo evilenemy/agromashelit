@@ -38,10 +38,9 @@ function App() {
         <Route path="/news" element={<News api={api} />} lang={lang} />
         <Route
           path="/news/:id"
-          element={<NewsDetail api={api} />}
-          lang={lang}
+          element={<NewsDetail api={api} lang={lang} />}
         />
-        <Route path="/submit" element={<SubmitOrder api={api} />} lang={lang} />
+        <Route path="/submit" element={<SubmitOrder api={api} lang={lang} />} />
       </Routes>
       <Footer lang={lang} />
     </Router>
