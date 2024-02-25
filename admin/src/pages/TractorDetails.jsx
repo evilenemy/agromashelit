@@ -42,8 +42,8 @@ const TractorDetails = ({ api }) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("title_ru", titleRu);
-    formData.append("description", description?.split("\r"));
-    formData.append("description_ru", descriptionRu?.split("\r"));
+    formData.append("description", description?.split("\n"));
+    formData.append("description_ru", descriptionRu?.split("\n"));
     formData.append("price", price);
     if (images.length > 0)
       for (const image of images) formData.append("images", image);

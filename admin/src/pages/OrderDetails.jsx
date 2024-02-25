@@ -8,6 +8,13 @@ const OrderDetails = ({ api }) => {
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [product, setProduct] = useState({
+    _id: "",
+    images: [],
+    title: "",
+    description: [],
+    price: 0,
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -19,6 +26,7 @@ const OrderDetails = ({ api }) => {
       .then((res) => {
         setName(res.data.name);
         setNumber(res.data.number);
+        setProduct(res.data.product);
         setLoading(false);
       })
       .catch((err) => {
@@ -26,6 +34,8 @@ const OrderDetails = ({ api }) => {
         setError(err.response.data.error);
       });
   }, []);
+
+  console.log(product);
 
   const handleDelete = () => {
     if (window.confirm("Are you sure you want to complete the order?"))
@@ -67,7 +77,7 @@ const OrderDetails = ({ api }) => {
                 onInput={(e) => setName(e.target.value)}
                 className="outline-none disabled:bg-zinc-200 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Name"
-                required
+                readOnly
               />
             </div>
 
@@ -85,8 +95,45 @@ const OrderDetails = ({ api }) => {
                 rows={3}
                 className="mt-2 outline-none disabled:bg-zinc-200 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Number"
-                required
+                readOnly
               />
+            </div>
+
+            <div className="border w-[80%] rounded-lg p-4 mt-4">
+              <h1 className="text-center text-lg font-medium my-2">
+                Buyurtma Tafsilotlari
+              </h1>
+              <h1 className="font-medium">
+                Texnika nomi:{" "}
+                <span className="font-normal">{product?.title}</span>
+              </h1>
+
+              <ul className="mt-2">
+                <h1 className="font-medium">Buyurtmaning qisqacha tavsifi:</h1>{" "}
+                {product.description.slice(0, 4).map((text, index) => (
+                  <li key={index} className="ml-4 line-clamp-1">
+                    {text}
+                  </li>
+                ))}
+              </ul>
+
+              <h1 className="font-medium mt-2">
+                Texnika narxi: <span className="font-normal">{product?.price} so'm</span>
+              </h1>
+
+              <div className="mt-4">
+                <h1 className="font-medium">Texnika rasmlari</h1>
+                <div className="flex flex-wrap justify-around mt-2">
+                  {product?.images.map((image, index) => (
+                    <img
+                      src={api + image.path}
+                      className="w-[25%] object-cover"
+                      key={index}
+                      alt="Pic"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
 
             {error && (
@@ -94,7 +141,7 @@ const OrderDetails = ({ api }) => {
                 {error}
               </div>
             )}
-            <div className="flex justify-around items-center px-2">
+            <div className="flex justify-around items-center px-2 mt-7">
               <button
                 type="button"
                 onClick={() => navigate(-1)}

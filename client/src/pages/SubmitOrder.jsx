@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const SubmitOrder = ({ api, lang }) => {
   const location = useLocation();
-  const navigate = useNavigate();
+  const navigation = useNavigate();
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -12,9 +12,9 @@ const SubmitOrder = ({ api, lang }) => {
 
   useEffect(() => {
     if (!location.state) {
-      console.clear()
-      alert("Something went wrong, please try again later.");
-      navigate("/");
+      console.clear();
+      navigation("/404");
+      alert("Something went wrong, plase try again later.");
     }
   }, []);
 
@@ -30,9 +30,12 @@ const SubmitOrder = ({ api, lang }) => {
               ? "Ваш заказ успешно получен! Мы свяжемся с вами в ближайшее время."
               : "Buyurtmangiz muvaffaqiyatli qabul qilindi! Siz bilan tez orada bog'lanamiz."
           );
-          navigate("/");
+          navigation("/");
         })
-        .catch((res) => alert("Something went wrong, please try again later."));
+        .catch((res) => {
+          navigation("/404");
+          alert("Something went wrong, plase try again later.");
+        });
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Product from "../components/Product";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Agro from "../components/Agro";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,19 +15,30 @@ const Home = ({ api, lang }) => {
   const [tractors, setTractors] = useState([]);
   const [agros, setAgros] = useState([]);
 
+  const navigation = useNavigate();
+
   const load = () => {
     axios
       .get(`${api}/api/slider`)
       .then((res) => setSlider(res.data))
-      .catch((err) => alert("Something went wrong, please try again later."));
+      .catch((err) => {
+        navigation("/404");
+        alert("Something went wrong with slider, plase try again later.");
+      });
     axios
       .get(`${api}/api/tractor`)
       .then((res) => setTractors(res.data))
-      .catch((err) => alert("Something went wrong, please try again later."));
+      .catch((err) => {
+        navigation("/404");
+        alert("Something went wrong with tractors, plase try again later.");
+      });
     axios
       .get(`${api}/api/agro`)
       .then((res) => setAgros(res.data))
-      .catch((err) => alert("Something went wrong, please try again later."));
+      .catch((err) => {
+        navigation("/404");
+        alert("Something went wrong with agrotechnics, plase try again later.");
+      });
   };
 
   useEffect(() => {

@@ -1,94 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Product from "../components/Product";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Tractors = ({ api, lang }) => {
-  const [tractors, setTractors] = useState([
-    {
-      _id: "65c87bf122f135650772671a",
-      title: "Lorem ipsum, dolor",
-      title_ru: "Lorem ipsum, dolor",
-      description: [],
-      description_ru: [],
-      price: 4500000,
-      images: [
-        {
-          path: "/product-1.jpg",
-          size: "693,58kb",
-          name: "1707637745319 - product-1.jpg",
-        },
-        {
-          path: "/product-1.jpg",
-          size: "550,91kb",
-          name: "1707637745338 - texnikxizmat.jpg",
-        },
-        {
-          path: "/product-1.jpg",
-          size: "18,97kb",
-          name: "1707637745338 - tractor-2.jpg",
-        },
-      ],
-      createdAt: "2024-02-11T07:49:05.790+00:00",
-      updatedAt: "2024-02-11T07:51:42.200+00:00",
-      __v: 0,
-    },
-    {
-      _id: "65c87c6522f1356507726730",
-      title: "Lorem ipsum, dolor",
-      title_ru: "Lorem ipsum, dolor",
-      description: [],
-      description_ru: [],
-      price: 3440000,
-      images: [
-        {
-          path: "/product-1.jpg",
-          size: "693,58kb",
-          name: "1707637861712 - product-1.jpg",
-        },
-        {
-          path: "/product-1.jpg",
-          size: "500,61kb",
-          name: "1707637861712 - tractor-1.jpg",
-        },
-        {
-          path: "/product-1.jpg",
-          size: "654,62kb",
-          name: "1707637861712 - tractor-3.jpg",
-        },
-      ],
-      createdAt: "2024-02-11T07:51:01.721+00:00",
-      updatedAt: "2024-02-11T07:51:01.721+00:00",
-      __v: 0,
-    },
-    {
-      _id: "65c87c7c22f1356507726733",
-      title: "Lorem ipsum, dolor",
-      description: [],
-      price: 7600000,
-      images: [
-        {
-          path: "/product-1.jpg",
-          size: "165,23kb",
-          name: "1707638612312 - 22.jpg",
-        },
-        {
-          path: "/product-1.jpg",
-          size: "257,09kb",
-          name: "1707638612313 - about-image.jpg",
-        },
-      ],
-      createdAt: "2024-02-11T07:51:24.493+00:00",
-      updatedAt: "2024-02-11T08:03:32.318+00:00",
-      __v: 0,
-    },
-  ]);
+  const [tractors, setTractors] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const navigation = useNavigate();
 
   const load = () => {
+    setLoading(true);
     axios
       .get(`${api}/api/tractor`)
-      .then((res) => setTractors(res.data))
-      .catch((err) => alert("Something went wrong, please try again later."));
+      .then((res) => {
+        setTractors(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        navigation("/404");
+        alert("Something went wrong, plase try again later.");
+      });
   };
 
   useEffect(() => {
@@ -104,9 +37,11 @@ const Tractors = ({ api, lang }) => {
           {lang === "ru" ? "Тракторы" : "Traktorlar"}
         </Link>
         <div className="w-full flex flex-wrap justify-around">
-          {tractors.map((tractor) => (
-            <Product product={tractor} key={tractor._id} api={api} />
-          ))}
+          {!loading &&
+            tractors.map((tractor) => (
+              <Product product={tractor} key={tractor._id} api={api} />
+            ))}
+          {loading && <div>Loading...</div>}
         </div>
         <div className="w-full flex items-center justify-center mt-5">
           <Link to={"/agrotechnics"}>

@@ -18,10 +18,11 @@ const getOrder = async (req, res) => {
 
 const createOrder = async (req, res) => {
   try {
-    const { name, number } = req.body;
+    const { name, number, product } = req.body;
     const order = await Order.create({
       name,
       number,
+      product,
     });
 
     return res.status(200).json(order);

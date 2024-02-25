@@ -10,6 +10,7 @@ import SubmitOrder from "./pages/SubmitOrder";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import AgroDetails from "./pages/AgroDetails";
+import NotFound from "./pages/404";
 
 function App() {
   const [api] = useState("https://agromashelite.ru");
@@ -41,6 +42,7 @@ function App() {
           element={<NewsDetail api={api} lang={lang} />}
         />
         <Route path="/submit" element={<SubmitOrder api={api} lang={lang} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer lang={lang} />
     </Router>

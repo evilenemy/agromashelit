@@ -11,6 +11,10 @@ const orderSchema = new Schema(
       type: String,
       required: true,
     },
+    product: {
+      type: Object,
+      required: false,
+    },
   },
   { timestamps: true }
 );
