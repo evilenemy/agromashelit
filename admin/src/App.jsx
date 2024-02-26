@@ -18,7 +18,7 @@ import SliderDetails from "./pages/SliderDetails";
 import Sliders from "./pages/Sliders";
 
 function App() {
-  const [api] = useState("https://agromashelite.ru");
+  const [api] = useState(""); // api like this "https://api.com"
   const [isAdmin, setIsAdmin] = useState(
     JSON.parse(sessionStorage.getItem("authAdmin")) || false
   );

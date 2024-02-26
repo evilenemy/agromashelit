@@ -13,7 +13,7 @@ import AgroDetails from "./pages/AgroDetails";
 import NotFound from "./pages/404";
 
 function App() {
-  const [api] = useState("https://agromashelite.ru");
+  const [api] = useState(""); // url like this "https://api.com"
   const [lang, setLang] = useState(
     JSON.parse(localStorage.getItem("lang")) || "ru"
   );
