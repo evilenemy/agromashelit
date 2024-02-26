@@ -184,8 +184,32 @@ const Navbar = ({ lang, setLang }) => {
         ${open ? "" : "translate-x-full"}  
         z-40 h-[95vh] flex md:hidden flex-col px-4 py-2 bg-red-600/95 transition duration-1000`}
       >
+        <li className="mt-4 flex justify-center text-white outline-none focus:rign-0 border-0 focus:bottom-0">
+          <button
+            className="cursor-pointer flex items-center mx-1"
+            onClick={() => setLang("ru")}
+          >
+            <img
+              src="/Flag_of_Russia.png"
+              className="object-cover w-[25px] h-[20px] mx-1"
+              alt="Ru"
+            />
+            RU
+          </button>
+          <button
+            className="cursor-pointer flex items-center mx-1"
+            onClick={() => setLang("uz")}
+          >
+            <img
+              src="/Flag_of_Uzbekistan.png"
+              className="object-cover w-[25px] h-[20px] mx-1"
+              alt="Uzb"
+            />
+            UZ
+          </button>
+        </li>
         <li
-          className={`text-center cursor-pointer text-lg p-2 mt-5 hover:text-white/100 text-white/80 transition duration-200 min-w-[150px]`}
+          className={`text-center cursor-pointer text-lg p-2 mt-4 hover:text-white/100 text-white/80 transition duration-200 min-w-[150px]`}
         >
           <Link to="/" className="hover:text-white">
             {lang === "ru" ? "Домашняя страница" : "Bosh sahifa"}
@@ -211,30 +235,6 @@ const Navbar = ({ lang, setLang }) => {
           <Link to={"/news"} className="hover:text-white">
             {lang === "ru" ? "Новости" : "Yangiliklar"}
           </Link>
-        </li>
-        <li className="w-[110px] flex text-white outline-none focus:rign-0 border-0 focus:bottom-0">
-          <button
-            className="cursor-pointer flex items-center mx-1"
-            onClick={() => setLang("ru")}
-          >
-            <img
-              src="/Flag_of_Russia.png"
-              className="object-cover w-[25px] h-[20px] mx-1"
-              alt="Ru"
-            />
-            RU
-          </button>
-          <button
-            className="cursor-pointer flex items-center mx-1"
-            onClick={() => setLang("uz")}
-          >
-            <img
-              src="/Flag_of_Uzbekistan.png"
-              className="object-cover w-[25px] h-[20px] mx-1"
-              alt="Uzb"
-            />
-            UZ
-          </button>
         </li>
       </ul>
     </>
